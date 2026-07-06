@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://1hsbokhoqwrr"]
+
+[ext_resource type="Texture2D" uid="uid://byn75ugwy4ykw" path="res://Assets/Mine (1)/Minas/Textures/SoilRough.jpg" id="1_htuwp"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_snhtf"]
+[ext_resource type="Texture2D" uid="uid://d1s6366j6g6m3" path="res://Assets/Mine (1)/Minas/Textures/WoodRough.jpg" id="2_htuwp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pp6wf"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 0.6
+
+[sub_resource type="Sky" id="Sky_snhtf"]
+sky_material = SubResource("ProceduralSkyMaterial_pp6wf")
+
+[sub_resource type="Environment" id="Environment_wb11x"]
+background_mode = 2
+sky = SubResource("Sky_snhtf")
+tonemap_mode = 2
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.002
+
+[node name="Node3D" type="Node3D" unique_id=1815980703]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1508887849]
+environment = SubResource("Environment_wb11x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1616666073]
+transform = Transform3D(0.73304385, -0.1583004, -0.66150415, 0.6669678, 0.3580549, 0.6534146, 0.13341899, -0.92018354, 0.3680512, 5.9406433, 28.657524, 0)
+light_energy = 0.242
+shadow_enabled = true
+shadow_blur = 3.178
+directional_shadow_max_distance = 1.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1240808932]
+transform = Transform3D(0.08969549, 0, 0, 0, 0.1356596, 0, 0, 0, 0.08965862, 0, 0, 0)
+use_collision = true
+
+[node name="Platform" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2139631412]
+transform = Transform3D(217.57877, 0, 0, 0, 4.8822646, 0, 0, 0, 135.58151, -0.027677532, -1.6247032, 3.1287718)
+use_collision = true
+size = Vector3(1, 1, 2.3701172)
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=1881848079]
+transform = Transform3D(0.052653283, 0, 0, 0, -0.015408078, -1.3089409, 0, 0.100960955, -0.0030424471, 0.12873518, 0.5489088, -0.24538778)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=1264354199]
+transform = Transform3D(0.055350382, 0, 0, 0, -0.014279861, -1.4813682, 0, 0.10749527, -0.19678861, 0.12710187, 0.5270895, 0.018368054)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D3" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=1262802799]
+transform = Transform3D(-0.056098092, -0.00037234003, -0.00029317633, 0, 0.0069861533, -0.9867482, 0.00022323556, -0.09356741, -0.07367391, 0.12791432, 0.51829004, 0.27210873)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D4" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=1464343144]
+transform = Transform3D(-0.05099185, 0.0012355555, 0.002342895, 0, -0.026117664, 0.97151124, 0.0005446803, 0.11567022, 0.21933715, -0.005107571, 0.5527912, -0.22523724)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D5" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=269513624]
+transform = Transform3D(-0.052106246, 0, 0, 0, 0.0009883821, -0.93386793, 0, 0.099701025, 0.009258495, -0.008552613, 0.5036461, 0.034111783)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D6" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=1723883266]
+transform = Transform3D(0.05331092, 0, 0, 0, -0.0032924367, -0.36148685, 0, 0.09207155, -0.01292663, -0.011714134, 0.5168321, 0.27087712)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D7" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=1653611258]
+transform = Transform3D(0.047103126, 0, 0, 0, -0.0032924367, -0.36148685, 0, 0.0920716, -0.012926636, -0.14070399, 0.5168321, 0.27087727)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D8" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=945734753]
+transform = Transform3D(0.050896674, 0, 0, 0, -0.0032924367, -0.36148685, 0, 0.09207158, -0.0129266335, -0.1357607, 0.5168321, 0.040464293)
+texture = ExtResource("1_htuwp")
+
+[node name="Sprite3D9" type="Sprite3D" parent="CSGCombiner3D/Platform" unique_id=2038258060]
+transform = Transform3D(0.07693121, 0, 0, 0, -0.0047512054, -0.52164966, 0, 0.13286552, -0.018654006, -0.16785355, 0.56872296, -0.2474544)
+texture = ExtResource("1_htuwp")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=413961397]
+transform = Transform3D(1, 0, 0, 0, 14.705414, 0, 0, 0, 50.397694, -44.354424, 12.466297, 3.0909111)
+size = Vector3(1, 1.7568359, 2.118187)
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=947163541]
+transform = Transform3D(12.089375, 0, 0, 0, 0.6640505, 0, 0, 0, 1, 46.808613, 0, -1.0247613)
+texture = ExtResource("2_htuwp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=1221992572]
+transform = Transform3D(12.348316, 0, 0, 0, 0.6166438, 0, 0, 0, 1.8419682, 15.647854, 0.055312216, -1.0268238)
+texture = ExtResource("2_htuwp")
+
+[node name="Sprite3D3" type="Sprite3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=1203511816]
+transform = Transform3D(11.846864, 0, 0, 0, 0.64376366, 0, 0, 0, 1, 77.36603, 0.027139306, -1.020774)
+texture = ExtResource("2_htuwp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=593485964]
+transform = Transform3D(1.5409124, 0, 0, 0, 24.405544, 0, 0, 0, 70.91895, 44.47835, 12.817301, 3.1421196)
+size = Vector3(1, 1, 1.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D/CSGBox3D" unique_id=1702405733]
+transform = Transform3D(10.441248, 0, 0, 0, 0.39705953, 0, 0, 0, 1, -44.23856, 0, 0.74018955)
+texture = ExtResource("2_htuwp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CSGCombiner3D/CSGBox3D" unique_id=487930558]
+transform = Transform3D(11.980154, 0, 0, 0, 0.41161564, 0, 0, 0, 0.55171657, -15.574566, -0.022141099, 0.7411313)
+texture = ExtResource("2_htuwp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=538736691]
+transform = Transform3D(39.280693, 0, 0, 0, 24.716152, 0, 0, 0, 2.69694, -0.14654636, 12.51285, -50.030243)
+size = Vector3(2.2403107, 1.0263672, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=151325601]
+transform = Transform3D(85.33728, 0, 0, 0, 23.659388, 0, 0, 0, 1.2062157, -0.06833577, 10.800494, 56.39062)
+size = Vector3(1.0576859, 1.2285156, 1)
+
+[node name="ProtoController" parent="." unique_id=1095070410 instance=ExtResource("1_snhtf")]
+transform = Transform3D(-1.224282, 0, -0.70297015, 0, 1.4117484, 0, 0.70297015, 0, -1.224282, -2.231429, 0.13181353, -2.8077667)
+visible = false
+can_sprint = true
