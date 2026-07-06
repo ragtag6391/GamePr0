@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://twgt4k5dbq6t"]
+
+[ext_resource type="Script" uid="uid://cgarrumoc5k5i" path="res://slot_machine__control.gd" id="1_sjw18"]
+
+[node name="SlotMachine  Control" type="Control" unique_id=2050197961]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sjw18")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=510914306]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Reels" type="HBoxContainer" parent="VBoxContainer" unique_id=931768334]
+layout_mode = 2
+
+[node name="Reel1" type="Label" parent="VBoxContainer/Reels" unique_id=1220369952]
+layout_mode = 2
+
+[node name="Reel2" type="Label" parent="VBoxContainer/Reels" unique_id=1675427389]
+layout_mode = 2
+
+[node name="Reel3" type="Label" parent="VBoxContainer/Reels" unique_id=914518625]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=2130362803]
+layout_mode = 2
+
+[node name="DebtLabel" type="Label" parent="VBoxContainer" unique_id=2126073471]
+layout_mode = 2
+
+[node name="BetLabel" type="Label" parent="VBoxContainer" unique_id=1126406035]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=997633570]
+layout_mode = 2
+
+[node name="SpinButton" type="Button" parent="VBoxContainer" unique_id=140017875]
+layout_mode = 2
+
+[node name="BetInput" type="SpinBox" parent="VBoxContainer" unique_id=278100678]
+layout_mode = 2
