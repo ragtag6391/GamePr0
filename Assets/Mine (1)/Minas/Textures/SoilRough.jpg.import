@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byn75ugwy4ykw"
-path.s3tc="res://.godot/imported/SoilRough.jpg-2b04ef972583f80708d87d1ab2f97763.s3tc.ctex"
-path.etc2="res://.godot/imported/SoilRough.jpg-2b04ef972583f80708d87d1ab2f97763.etc2.ctex"
+path.s3tc="res://.godot/imported/SoilRough.jpg-d7265548b33b25b88df0a9a1fad5fd40.s3tc.ctex"
+path.etc2="res://.godot/imported/SoilRough.jpg-d7265548b33b25b88df0a9a1fad5fd40.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/SoilRough.jpg"
-dest_files=["res://.godot/imported/SoilRough.jpg-2b04ef972583f80708d87d1ab2f97763.s3tc.ctex", "res://.godot/imported/SoilRough.jpg-2b04ef972583f80708d87d1ab2f97763.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/SoilRough.jpg"
+dest_files=["res://.godot/imported/SoilRough.jpg-d7265548b33b25b88df0a9a1fad5fd40.s3tc.ctex", "res://.godot/imported/SoilRough.jpg-d7265548b33b25b88df0a9a1fad5fd40.etc2.ctex"]
 
 [params]
 

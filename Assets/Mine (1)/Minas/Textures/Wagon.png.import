@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu6gc4xkry72c"
-path.s3tc="res://.godot/imported/Wagon.png-ceafc5ada7e3cc3dbea97dc0bfba1515.s3tc.ctex"
-path.etc2="res://.godot/imported/Wagon.png-ceafc5ada7e3cc3dbea97dc0bfba1515.etc2.ctex"
+path.s3tc="res://.godot/imported/Wagon.png-6007b113339159475a10ad60ad5e2623.s3tc.ctex"
+path.etc2="res://.godot/imported/Wagon.png-6007b113339159475a10ad60ad5e2623.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Wagon.png"
-dest_files=["res://.godot/imported/Wagon.png-ceafc5ada7e3cc3dbea97dc0bfba1515.s3tc.ctex", "res://.godot/imported/Wagon.png-ceafc5ada7e3cc3dbea97dc0bfba1515.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Wagon.png"
+dest_files=["res://.godot/imported/Wagon.png-6007b113339159475a10ad60ad5e2623.s3tc.ctex", "res://.godot/imported/Wagon.png-6007b113339159475a10ad60ad5e2623.etc2.ctex"]
 
 [params]
 

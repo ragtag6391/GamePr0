@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxtkn3lidjrmu"
-path.s3tc="res://.godot/imported/Lamp_Emissor.png-19cae54f66d7aadefa6aebe914610b9f.s3tc.ctex"
-path.etc2="res://.godot/imported/Lamp_Emissor.png-19cae54f66d7aadefa6aebe914610b9f.etc2.ctex"
+path.s3tc="res://.godot/imported/Lamp_Emissor.png-d500365a9e7c164d419c71f4881d6d0d.s3tc.ctex"
+path.etc2="res://.godot/imported/Lamp_Emissor.png-d500365a9e7c164d419c71f4881d6d0d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Lamp_Emissor.png"
-dest_files=["res://.godot/imported/Lamp_Emissor.png-19cae54f66d7aadefa6aebe914610b9f.s3tc.ctex", "res://.godot/imported/Lamp_Emissor.png-19cae54f66d7aadefa6aebe914610b9f.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Lamp_Emissor.png"
+dest_files=["res://.godot/imported/Lamp_Emissor.png-d500365a9e7c164d419c71f4881d6d0d.s3tc.ctex", "res://.godot/imported/Lamp_Emissor.png-d500365a9e7c164d419c71f4881d6d0d.etc2.ctex"]
 
 [params]
 

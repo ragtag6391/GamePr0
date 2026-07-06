@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdggk26ocn8nv"
-path.s3tc="res://.godot/imported/Petrol_Can.png-ab715a921692540adf8c664be9ea3029.s3tc.ctex"
-path.etc2="res://.godot/imported/Petrol_Can.png-ab715a921692540adf8c664be9ea3029.etc2.ctex"
+path.s3tc="res://.godot/imported/Petrol_Can.png-4870132b43306b26b80371e404178e8a.s3tc.ctex"
+path.etc2="res://.godot/imported/Petrol_Can.png-4870132b43306b26b80371e404178e8a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Petrol_Can.png"
-dest_files=["res://.godot/imported/Petrol_Can.png-ab715a921692540adf8c664be9ea3029.s3tc.ctex", "res://.godot/imported/Petrol_Can.png-ab715a921692540adf8c664be9ea3029.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Petrol_Can.png"
+dest_files=["res://.godot/imported/Petrol_Can.png-4870132b43306b26b80371e404178e8a.s3tc.ctex", "res://.godot/imported/Petrol_Can.png-4870132b43306b26b80371e404178e8a.etc2.ctex"]
 
 [params]
 

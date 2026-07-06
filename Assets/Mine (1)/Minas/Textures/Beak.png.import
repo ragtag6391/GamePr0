@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dv7p03j5r2i0x"
-path.s3tc="res://.godot/imported/Beak.png-51dcc6f683a19ce2499a3eb68aca335e.s3tc.ctex"
-path.etc2="res://.godot/imported/Beak.png-51dcc6f683a19ce2499a3eb68aca335e.etc2.ctex"
+path.s3tc="res://.godot/imported/Beak.png-485fdd14c49880f74e905f63c207e61f.s3tc.ctex"
+path.etc2="res://.godot/imported/Beak.png-485fdd14c49880f74e905f63c207e61f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Beak.png"
-dest_files=["res://.godot/imported/Beak.png-51dcc6f683a19ce2499a3eb68aca335e.s3tc.ctex", "res://.godot/imported/Beak.png-51dcc6f683a19ce2499a3eb68aca335e.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Beak.png"
+dest_files=["res://.godot/imported/Beak.png-485fdd14c49880f74e905f63c207e61f.s3tc.ctex", "res://.godot/imported/Beak.png-485fdd14c49880f74e905f63c207e61f.etc2.ctex"]
 
 [params]
 

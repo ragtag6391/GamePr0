@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b48vnpdq655sh"
-path.s3tc="res://.godot/imported/Rocks_W.jpg-07a4dbb51202c2729e5b84bf8a04e6af.s3tc.ctex"
-path.etc2="res://.godot/imported/Rocks_W.jpg-07a4dbb51202c2729e5b84bf8a04e6af.etc2.ctex"
+path.s3tc="res://.godot/imported/Rocks_W.jpg-1acfca47f82b8c9eb7f9d3534e061dae.s3tc.ctex"
+path.etc2="res://.godot/imported/Rocks_W.jpg-1acfca47f82b8c9eb7f9d3534e061dae.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Rocks_W.jpg"
-dest_files=["res://.godot/imported/Rocks_W.jpg-07a4dbb51202c2729e5b84bf8a04e6af.s3tc.ctex", "res://.godot/imported/Rocks_W.jpg-07a4dbb51202c2729e5b84bf8a04e6af.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Rocks_W.jpg"
+dest_files=["res://.godot/imported/Rocks_W.jpg-1acfca47f82b8c9eb7f9d3534e061dae.s3tc.ctex", "res://.godot/imported/Rocks_W.jpg-1acfca47f82b8c9eb7f9d3534e061dae.etc2.ctex"]
 
 [params]
 

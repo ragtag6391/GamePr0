@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c28m76yjihb1f"
-path.s3tc="res://.godot/imported/Medical_box.png-c8f964c59e4b10193f0b6d1feb03c398.s3tc.ctex"
-path.etc2="res://.godot/imported/Medical_box.png-c8f964c59e4b10193f0b6d1feb03c398.etc2.ctex"
+path.s3tc="res://.godot/imported/Medical_box.png-55cd04681e7066fbe303793389054adb.s3tc.ctex"
+path.etc2="res://.godot/imported/Medical_box.png-55cd04681e7066fbe303793389054adb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Medical_box.png"
-dest_files=["res://.godot/imported/Medical_box.png-c8f964c59e4b10193f0b6d1feb03c398.s3tc.ctex", "res://.godot/imported/Medical_box.png-c8f964c59e4b10193f0b6d1feb03c398.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Medical_box.png"
+dest_files=["res://.godot/imported/Medical_box.png-55cd04681e7066fbe303793389054adb.s3tc.ctex", "res://.godot/imported/Medical_box.png-55cd04681e7066fbe303793389054adb.etc2.ctex"]
 
 [params]
 

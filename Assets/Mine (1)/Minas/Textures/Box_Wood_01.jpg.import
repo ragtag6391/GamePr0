@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diyf61ejyt1xp"
-path.s3tc="res://.godot/imported/Box_Wood_01.jpg-55572f980a9690b804b503b18777b0be.s3tc.ctex"
-path.etc2="res://.godot/imported/Box_Wood_01.jpg-55572f980a9690b804b503b18777b0be.etc2.ctex"
+path.s3tc="res://.godot/imported/Box_Wood_01.jpg-872368a2a3e0f8e4b8bef6336ac87c59.s3tc.ctex"
+path.etc2="res://.godot/imported/Box_Wood_01.jpg-872368a2a3e0f8e4b8bef6336ac87c59.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Box_Wood_01.jpg"
-dest_files=["res://.godot/imported/Box_Wood_01.jpg-55572f980a9690b804b503b18777b0be.s3tc.ctex", "res://.godot/imported/Box_Wood_01.jpg-55572f980a9690b804b503b18777b0be.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Box_Wood_01.jpg"
+dest_files=["res://.godot/imported/Box_Wood_01.jpg-872368a2a3e0f8e4b8bef6336ac87c59.s3tc.ctex", "res://.godot/imported/Box_Wood_01.jpg-872368a2a3e0f8e4b8bef6336ac87c59.etc2.ctex"]
 
 [params]
 

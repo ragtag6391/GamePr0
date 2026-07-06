@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpw5rbc5oeqj8"
-path.s3tc="res://.godot/imported/Farol.png-1dc3d9a01e62adb97f159f4709f597f4.s3tc.ctex"
-path.etc2="res://.godot/imported/Farol.png-1dc3d9a01e62adb97f159f4709f597f4.etc2.ctex"
+path.s3tc="res://.godot/imported/Farol.png-eb954bbd291d57d4719de0c175178cf2.s3tc.ctex"
+path.etc2="res://.godot/imported/Farol.png-eb954bbd291d57d4719de0c175178cf2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Farol.png"
-dest_files=["res://.godot/imported/Farol.png-1dc3d9a01e62adb97f159f4709f597f4.s3tc.ctex", "res://.godot/imported/Farol.png-1dc3d9a01e62adb97f159f4709f597f4.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Farol.png"
+dest_files=["res://.godot/imported/Farol.png-eb954bbd291d57d4719de0c175178cf2.s3tc.ctex", "res://.godot/imported/Farol.png-eb954bbd291d57d4719de0c175178cf2.etc2.ctex"]
 
 [params]
 

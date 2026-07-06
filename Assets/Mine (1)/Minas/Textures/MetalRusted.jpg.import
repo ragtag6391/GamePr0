@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuhggb8dtrpfj"
-path.s3tc="res://.godot/imported/MetalRusted.jpg-732b79d8a743bcb9b97c6dacd5c736ed.s3tc.ctex"
-path.etc2="res://.godot/imported/MetalRusted.jpg-732b79d8a743bcb9b97c6dacd5c736ed.etc2.ctex"
+path.s3tc="res://.godot/imported/MetalRusted.jpg-c82c8b277a36358e50e7cad8f1a0e1d5.s3tc.ctex"
+path.etc2="res://.godot/imported/MetalRusted.jpg-c82c8b277a36358e50e7cad8f1a0e1d5.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/MetalRusted.jpg"
-dest_files=["res://.godot/imported/MetalRusted.jpg-732b79d8a743bcb9b97c6dacd5c736ed.s3tc.ctex", "res://.godot/imported/MetalRusted.jpg-732b79d8a743bcb9b97c6dacd5c736ed.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/MetalRusted.jpg"
+dest_files=["res://.godot/imported/MetalRusted.jpg-c82c8b277a36358e50e7cad8f1a0e1d5.s3tc.ctex", "res://.godot/imported/MetalRusted.jpg-c82c8b277a36358e50e7cad8f1a0e1d5.etc2.ctex"]
 
 [params]
 

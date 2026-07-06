@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnyld2cr1ovhy"
-path.s3tc="res://.godot/imported/Barrel_01.png-ca44e90d4aeb5279513e61e3cd6e31e5.s3tc.ctex"
-path.etc2="res://.godot/imported/Barrel_01.png-ca44e90d4aeb5279513e61e3cd6e31e5.etc2.ctex"
+path.s3tc="res://.godot/imported/Barrel_01.png-96a1be81279a199b654a47ef7fec97a3.s3tc.ctex"
+path.etc2="res://.godot/imported/Barrel_01.png-96a1be81279a199b654a47ef7fec97a3.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Barrel_01.png"
-dest_files=["res://.godot/imported/Barrel_01.png-ca44e90d4aeb5279513e61e3cd6e31e5.s3tc.ctex", "res://.godot/imported/Barrel_01.png-ca44e90d4aeb5279513e61e3cd6e31e5.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Barrel_01.png"
+dest_files=["res://.godot/imported/Barrel_01.png-96a1be81279a199b654a47ef7fec97a3.s3tc.ctex", "res://.godot/imported/Barrel_01.png-96a1be81279a199b654a47ef7fec97a3.etc2.ctex"]
 
 [params]
 

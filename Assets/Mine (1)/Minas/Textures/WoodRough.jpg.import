@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1s6366j6g6m3"
-path.s3tc="res://.godot/imported/WoodRough.jpg-f899ece0ceff224bb10ae299b6ff35ef.s3tc.ctex"
-path.etc2="res://.godot/imported/WoodRough.jpg-f899ece0ceff224bb10ae299b6ff35ef.etc2.ctex"
+path.s3tc="res://.godot/imported/WoodRough.jpg-9ae6efa44e31c63b6980c53cf9c7f498.s3tc.ctex"
+path.etc2="res://.godot/imported/WoodRough.jpg-9ae6efa44e31c63b6980c53cf9c7f498.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/WoodRough.jpg"
-dest_files=["res://.godot/imported/WoodRough.jpg-f899ece0ceff224bb10ae299b6ff35ef.s3tc.ctex", "res://.godot/imported/WoodRough.jpg-f899ece0ceff224bb10ae299b6ff35ef.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/WoodRough.jpg"
+dest_files=["res://.godot/imported/WoodRough.jpg-9ae6efa44e31c63b6980c53cf9c7f498.s3tc.ctex", "res://.godot/imported/WoodRough.jpg-9ae6efa44e31c63b6980c53cf9c7f498.etc2.ctex"]
 
 [params]
 

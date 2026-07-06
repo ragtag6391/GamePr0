@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1xv8ghih07cm"
-path.s3tc="res://.godot/imported/Detonator.png-edf47f1086d56c613512eb39c7f72dad.s3tc.ctex"
-path.etc2="res://.godot/imported/Detonator.png-edf47f1086d56c613512eb39c7f72dad.etc2.ctex"
+path.s3tc="res://.godot/imported/Detonator.png-e9d2270eca1cca208d8de4b89b14a979.s3tc.ctex"
+path.etc2="res://.godot/imported/Detonator.png-e9d2270eca1cca208d8de4b89b14a979.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Detonator.png"
-dest_files=["res://.godot/imported/Detonator.png-edf47f1086d56c613512eb39c7f72dad.s3tc.ctex", "res://.godot/imported/Detonator.png-edf47f1086d56c613512eb39c7f72dad.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Detonator.png"
+dest_files=["res://.godot/imported/Detonator.png-e9d2270eca1cca208d8de4b89b14a979.s3tc.ctex", "res://.godot/imported/Detonator.png-e9d2270eca1cca208d8de4b89b14a979.etc2.ctex"]
 
 [params]
 

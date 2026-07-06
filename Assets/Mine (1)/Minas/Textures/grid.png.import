@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c13lka6y1ohcm"
-path.s3tc="res://.godot/imported/grid.png-725bc62eaa5e6f65ec532c4edff9ffd6.s3tc.ctex"
-path.etc2="res://.godot/imported/grid.png-725bc62eaa5e6f65ec532c4edff9ffd6.etc2.ctex"
+path.s3tc="res://.godot/imported/grid.png-250c34fc6d3ca6327f73d0ca7255072a.s3tc.ctex"
+path.etc2="res://.godot/imported/grid.png-250c34fc6d3ca6327f73d0ca7255072a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/grid.png"
-dest_files=["res://.godot/imported/grid.png-725bc62eaa5e6f65ec532c4edff9ffd6.s3tc.ctex", "res://.godot/imported/grid.png-725bc62eaa5e6f65ec532c4edff9ffd6.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/grid.png"
+dest_files=["res://.godot/imported/grid.png-250c34fc6d3ca6327f73d0ca7255072a.s3tc.ctex", "res://.godot/imported/grid.png-250c34fc6d3ca6327f73d0ca7255072a.etc2.ctex"]
 
 [params]
 

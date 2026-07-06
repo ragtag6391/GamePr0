@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvvc1m5vxu86n"
-path.s3tc="res://.godot/imported/metal_painted.jpg-95a37e27c314aa49ae659ab8d41f6034.s3tc.ctex"
-path.etc2="res://.godot/imported/metal_painted.jpg-95a37e27c314aa49ae659ab8d41f6034.etc2.ctex"
+path.s3tc="res://.godot/imported/metal_painted.jpg-9c107dafdfdfb1143fe11623b4c172fe.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_painted.jpg-9c107dafdfdfb1143fe11623b4c172fe.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/metal_painted.jpg"
-dest_files=["res://.godot/imported/metal_painted.jpg-95a37e27c314aa49ae659ab8d41f6034.s3tc.ctex", "res://.godot/imported/metal_painted.jpg-95a37e27c314aa49ae659ab8d41f6034.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/metal_painted.jpg"
+dest_files=["res://.godot/imported/metal_painted.jpg-9c107dafdfdfb1143fe11623b4c172fe.s3tc.ctex", "res://.godot/imported/metal_painted.jpg-9c107dafdfdfb1143fe11623b4c172fe.etc2.ctex"]
 
 [params]
 

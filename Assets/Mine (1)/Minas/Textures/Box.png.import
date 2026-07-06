@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkq0ydkengv25"
-path.s3tc="res://.godot/imported/Box.png-313d0de0b9cffe7b2435f9b09778a6d8.s3tc.ctex"
-path.etc2="res://.godot/imported/Box.png-313d0de0b9cffe7b2435f9b09778a6d8.etc2.ctex"
+path.s3tc="res://.godot/imported/Box.png-8e50517ee99ee4feba07b8401ad99760.s3tc.ctex"
+path.etc2="res://.godot/imported/Box.png-8e50517ee99ee4feba07b8401ad99760.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Box.png"
-dest_files=["res://.godot/imported/Box.png-313d0de0b9cffe7b2435f9b09778a6d8.s3tc.ctex", "res://.godot/imported/Box.png-313d0de0b9cffe7b2435f9b09778a6d8.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Box.png"
+dest_files=["res://.godot/imported/Box.png-8e50517ee99ee4feba07b8401ad99760.s3tc.ctex", "res://.godot/imported/Box.png-8e50517ee99ee4feba07b8401ad99760.etc2.ctex"]
 
 [params]
 
