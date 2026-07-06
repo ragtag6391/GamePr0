@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy4rjl81lpduy"
-path.s3tc="res://.godot/imported/Elevator.png-cb2c3945c86b797a2fa928e6801956c4.s3tc.ctex"
-path.etc2="res://.godot/imported/Elevator.png-cb2c3945c86b797a2fa928e6801956c4.etc2.ctex"
+path.s3tc="res://.godot/imported/Elevator.png-ec0bfdae49ba2d972f5d49feb35d890f.s3tc.ctex"
+path.etc2="res://.godot/imported/Elevator.png-ec0bfdae49ba2d972f5d49feb35d890f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Elevator.png"
-dest_files=["res://.godot/imported/Elevator.png-cb2c3945c86b797a2fa928e6801956c4.s3tc.ctex", "res://.godot/imported/Elevator.png-cb2c3945c86b797a2fa928e6801956c4.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Elevator.png"
+dest_files=["res://.godot/imported/Elevator.png-ec0bfdae49ba2d972f5d49feb35d890f.s3tc.ctex", "res://.godot/imported/Elevator.png-ec0bfdae49ba2d972f5d49feb35d890f.etc2.ctex"]
 
 [params]
 

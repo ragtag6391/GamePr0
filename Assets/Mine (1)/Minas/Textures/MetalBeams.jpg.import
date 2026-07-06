@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8the0s67wo32"
-path.s3tc="res://.godot/imported/MetalBeams.jpg-c38109eab48458b0832c462181b8f6f8.s3tc.ctex"
-path.etc2="res://.godot/imported/MetalBeams.jpg-c38109eab48458b0832c462181b8f6f8.etc2.ctex"
+path.s3tc="res://.godot/imported/MetalBeams.jpg-565a0dd0f3c42f360e8e731b20be91ef.s3tc.ctex"
+path.etc2="res://.godot/imported/MetalBeams.jpg-565a0dd0f3c42f360e8e731b20be91ef.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/MetalBeams.jpg"
-dest_files=["res://.godot/imported/MetalBeams.jpg-c38109eab48458b0832c462181b8f6f8.s3tc.ctex", "res://.godot/imported/MetalBeams.jpg-c38109eab48458b0832c462181b8f6f8.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/MetalBeams.jpg"
+dest_files=["res://.godot/imported/MetalBeams.jpg-565a0dd0f3c42f360e8e731b20be91ef.s3tc.ctex", "res://.godot/imported/MetalBeams.jpg-565a0dd0f3c42f360e8e731b20be91ef.etc2.ctex"]
 
 [params]
 

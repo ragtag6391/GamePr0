@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5rmhvl1cpgck"
-path.s3tc="res://.godot/imported/TNT.png-ad8f7a5bf34f91218c854e6bcdef5428.s3tc.ctex"
-path.etc2="res://.godot/imported/TNT.png-ad8f7a5bf34f91218c854e6bcdef5428.etc2.ctex"
+path.s3tc="res://.godot/imported/TNT.png-9e5a159acce3be325d6581811ae92e84.s3tc.ctex"
+path.etc2="res://.godot/imported/TNT.png-9e5a159acce3be325d6581811ae92e84.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/TNT.png"
-dest_files=["res://.godot/imported/TNT.png-ad8f7a5bf34f91218c854e6bcdef5428.s3tc.ctex", "res://.godot/imported/TNT.png-ad8f7a5bf34f91218c854e6bcdef5428.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/TNT.png"
+dest_files=["res://.godot/imported/TNT.png-9e5a159acce3be325d6581811ae92e84.s3tc.ctex", "res://.godot/imported/TNT.png-9e5a159acce3be325d6581811ae92e84.etc2.ctex"]
 
 [params]
 

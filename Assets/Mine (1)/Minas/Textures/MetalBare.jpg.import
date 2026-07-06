@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbonvaghk42fw"
-path.s3tc="res://.godot/imported/MetalBare.jpg-80db838addefe246930e30a097f6138d.s3tc.ctex"
-path.etc2="res://.godot/imported/MetalBare.jpg-80db838addefe246930e30a097f6138d.etc2.ctex"
+path.s3tc="res://.godot/imported/MetalBare.jpg-23690906bcd46308514c1ea5ca554981.s3tc.ctex"
+path.etc2="res://.godot/imported/MetalBare.jpg-23690906bcd46308514c1ea5ca554981.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/MetalBare.jpg"
-dest_files=["res://.godot/imported/MetalBare.jpg-80db838addefe246930e30a097f6138d.s3tc.ctex", "res://.godot/imported/MetalBare.jpg-80db838addefe246930e30a097f6138d.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/MetalBare.jpg"
+dest_files=["res://.godot/imported/MetalBare.jpg-23690906bcd46308514c1ea5ca554981.s3tc.ctex", "res://.godot/imported/MetalBare.jpg-23690906bcd46308514c1ea5ca554981.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blrofg3kpm5gv"
-path.s3tc="res://.godot/imported/Generator.png-72e0bda1e7b435346429baed51b84fd1.s3tc.ctex"
-path.etc2="res://.godot/imported/Generator.png-72e0bda1e7b435346429baed51b84fd1.etc2.ctex"
+path.s3tc="res://.godot/imported/Generator.png-572dc0a332d21a162d938adb3cf16fd2.s3tc.ctex"
+path.etc2="res://.godot/imported/Generator.png-572dc0a332d21a162d938adb3cf16fd2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Generator.png"
-dest_files=["res://.godot/imported/Generator.png-72e0bda1e7b435346429baed51b84fd1.s3tc.ctex", "res://.godot/imported/Generator.png-72e0bda1e7b435346429baed51b84fd1.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Generator.png"
+dest_files=["res://.godot/imported/Generator.png-572dc0a332d21a162d938adb3cf16fd2.s3tc.ctex", "res://.godot/imported/Generator.png-572dc0a332d21a162d938adb3cf16fd2.etc2.ctex"]
 
 [params]
 

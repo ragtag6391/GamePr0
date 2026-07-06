@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buam33fin1i26"
-path.s3tc="res://.godot/imported/Box_Wood_03.png-c4274b38d003c1016df1779c425b4013.s3tc.ctex"
-path.etc2="res://.godot/imported/Box_Wood_03.png-c4274b38d003c1016df1779c425b4013.etc2.ctex"
+path.s3tc="res://.godot/imported/Box_Wood_03.png-236a303ffafe3d41fb4be6f9724ac463.s3tc.ctex"
+path.etc2="res://.godot/imported/Box_Wood_03.png-236a303ffafe3d41fb4be6f9724ac463.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Box_Wood_03.png"
-dest_files=["res://.godot/imported/Box_Wood_03.png-c4274b38d003c1016df1779c425b4013.s3tc.ctex", "res://.godot/imported/Box_Wood_03.png-c4274b38d003c1016df1779c425b4013.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Box_Wood_03.png"
+dest_files=["res://.godot/imported/Box_Wood_03.png-236a303ffafe3d41fb4be6f9724ac463.s3tc.ctex", "res://.godot/imported/Box_Wood_03.png-236a303ffafe3d41fb4be6f9724ac463.etc2.ctex"]
 
 [params]
 

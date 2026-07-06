@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwolnn4c2f07u"
-path.s3tc="res://.godot/imported/Mining_Helmet.png-a7a41ca0550dd81a4eb9418f0c4d50a1.s3tc.ctex"
-path.etc2="res://.godot/imported/Mining_Helmet.png-a7a41ca0550dd81a4eb9418f0c4d50a1.etc2.ctex"
+path.s3tc="res://.godot/imported/Mining_Helmet.png-321bb5614e8754a7b8409d2d40b15af9.s3tc.ctex"
+path.etc2="res://.godot/imported/Mining_Helmet.png-321bb5614e8754a7b8409d2d40b15af9.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Mining_Helmet.png"
-dest_files=["res://.godot/imported/Mining_Helmet.png-a7a41ca0550dd81a4eb9418f0c4d50a1.s3tc.ctex", "res://.godot/imported/Mining_Helmet.png-a7a41ca0550dd81a4eb9418f0c4d50a1.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Mining_Helmet.png"
+dest_files=["res://.godot/imported/Mining_Helmet.png-321bb5614e8754a7b8409d2d40b15af9.s3tc.ctex", "res://.godot/imported/Mining_Helmet.png-321bb5614e8754a7b8409d2d40b15af9.etc2.ctex"]
 
 [params]
 

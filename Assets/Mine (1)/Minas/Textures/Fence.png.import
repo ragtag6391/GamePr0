@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3awg8g5kvtwr"
-path.s3tc="res://.godot/imported/Fence.png-791946eaca16f910f6bafe716f61d7fc.s3tc.ctex"
-path.etc2="res://.godot/imported/Fence.png-791946eaca16f910f6bafe716f61d7fc.etc2.ctex"
+path.s3tc="res://.godot/imported/Fence.png-666414c4ec27e664799be8d5dcad13cf.s3tc.ctex"
+path.etc2="res://.godot/imported/Fence.png-666414c4ec27e664799be8d5dcad13cf.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Fence.png"
-dest_files=["res://.godot/imported/Fence.png-791946eaca16f910f6bafe716f61d7fc.s3tc.ctex", "res://.godot/imported/Fence.png-791946eaca16f910f6bafe716f61d7fc.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Fence.png"
+dest_files=["res://.godot/imported/Fence.png-666414c4ec27e664799be8d5dcad13cf.s3tc.ctex", "res://.godot/imported/Fence.png-666414c4ec27e664799be8d5dcad13cf.etc2.ctex"]
 
 [params]
 

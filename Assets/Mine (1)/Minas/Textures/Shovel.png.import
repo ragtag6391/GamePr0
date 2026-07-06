@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn1r1qhcwwiek"
-path.s3tc="res://.godot/imported/Shovel.png-5bac7d5a9be53b181f60c57f2a1ac708.s3tc.ctex"
-path.etc2="res://.godot/imported/Shovel.png-5bac7d5a9be53b181f60c57f2a1ac708.etc2.ctex"
+path.s3tc="res://.godot/imported/Shovel.png-40777f88e4a9a0315ca1e19f82b6bd6a.s3tc.ctex"
+path.etc2="res://.godot/imported/Shovel.png-40777f88e4a9a0315ca1e19f82b6bd6a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Shovel.png"
-dest_files=["res://.godot/imported/Shovel.png-5bac7d5a9be53b181f60c57f2a1ac708.s3tc.ctex", "res://.godot/imported/Shovel.png-5bac7d5a9be53b181f60c57f2a1ac708.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Shovel.png"
+dest_files=["res://.godot/imported/Shovel.png-40777f88e4a9a0315ca1e19f82b6bd6a.s3tc.ctex", "res://.godot/imported/Shovel.png-40777f88e4a9a0315ca1e19f82b6bd6a.etc2.ctex"]
 
 [params]
 

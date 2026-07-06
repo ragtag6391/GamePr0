@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4xoubth6r4fm"
-path.s3tc="res://.godot/imported/Gravel.png-9195e8b254505104791d43ea2f6da780.s3tc.ctex"
-path.etc2="res://.godot/imported/Gravel.png-9195e8b254505104791d43ea2f6da780.etc2.ctex"
+path.s3tc="res://.godot/imported/Gravel.png-61b61676dda2a5a6182245befa20a04b.s3tc.ctex"
+path.etc2="res://.godot/imported/Gravel.png-61b61676dda2a5a6182245befa20a04b.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/Gravel.png"
-dest_files=["res://.godot/imported/Gravel.png-9195e8b254505104791d43ea2f6da780.s3tc.ctex", "res://.godot/imported/Gravel.png-9195e8b254505104791d43ea2f6da780.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/Gravel.png"
+dest_files=["res://.godot/imported/Gravel.png-61b61676dda2a5a6182245befa20a04b.s3tc.ctex", "res://.godot/imported/Gravel.png-61b61676dda2a5a6182245befa20a04b.etc2.ctex"]
 
 [params]
 

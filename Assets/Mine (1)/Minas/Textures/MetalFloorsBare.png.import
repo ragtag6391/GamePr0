@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2ing2as8qqk0"
-path.s3tc="res://.godot/imported/MetalFloorsBare.png-9702865587233e69f4f39451605cbe2b.s3tc.ctex"
-path.etc2="res://.godot/imported/MetalFloorsBare.png-9702865587233e69f4f39451605cbe2b.etc2.ctex"
+path.s3tc="res://.godot/imported/MetalFloorsBare.png-781d1c8a84af88388c2bb7d2e82211cb.s3tc.ctex"
+path.etc2="res://.godot/imported/MetalFloorsBare.png-781d1c8a84af88388c2bb7d2e82211cb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Mine (1)/Minas/textures/MetalFloorsBare.png"
-dest_files=["res://.godot/imported/MetalFloorsBare.png-9702865587233e69f4f39451605cbe2b.s3tc.ctex", "res://.godot/imported/MetalFloorsBare.png-9702865587233e69f4f39451605cbe2b.etc2.ctex"]
+source_file="res://Assets/Mine (1)/Minas/Textures/MetalFloorsBare.png"
+dest_files=["res://.godot/imported/MetalFloorsBare.png-781d1c8a84af88388c2bb7d2e82211cb.s3tc.ctex", "res://.godot/imported/MetalFloorsBare.png-781d1c8a84af88388c2bb7d2e82211cb.etc2.ctex"]
 
 [params]
 
