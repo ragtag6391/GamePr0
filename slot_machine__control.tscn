@@ -5,41 +5,92 @@
 [node name="SlotMachine  Control" type="Control" unique_id=2050197961]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 652.0
+script = ExtResource("1_sjw18")
+
+[node name="OutsideWorld" type="TextureRect" parent="." unique_id=1846492517]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_sjw18")
+
+[node name="DarknessOverlay" type="ColorRect" parent="." unique_id=1595035652]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 1154.0
+offset_bottom = 653.0
+color = Color(0.107011236, 0.029062286, 0.03527458, 1)
+
+[node name="MachineFrame" type="Panel" parent="." unique_id=2091796377]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.57100004
+anchor_bottom = 0.95500004
+offset_right = -572.36304
+offset_bottom = -622.66003
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=510914306]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Reels" type="HBoxContainer" parent="VBoxContainer" unique_id=931768334]
-layout_mode = 2
-
-[node name="Reel1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1791987346]
-layout_mode = 2
-
-[node name="Reel2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=899834581]
-layout_mode = 2
-
-[node name="Reel3" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1511038919]
-layout_mode = 2
-
 [node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=2130362803]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="DebtLabel" type="Label" parent="VBoxContainer" unique_id=2126073471]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reels" type="GridContainer" parent="VBoxContainer" unique_id=415540552]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="R0C0" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1791987346]
+layout_mode = 2
+
+[node name="R0C1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=899834581]
+layout_mode = 2
+
+[node name="R0C2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1511038919]
+layout_mode = 2
+
+[node name="R1C0" type="TextureRect" parent="VBoxContainer/Reels" unique_id=655701394]
+layout_mode = 2
+
+[node name="R1C1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=935973064]
+layout_mode = 2
+
+[node name="R1C2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=786914922]
+layout_mode = 2
+
+[node name="R2C0" type="TextureRect" parent="VBoxContainer/Reels" unique_id=599125484]
+layout_mode = 2
+
+[node name="R2C1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=920179479]
+layout_mode = 2
+
+[node name="R2C2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1643048055]
 layout_mode = 2
 
 [node name="BetLabel" type="Label" parent="VBoxContainer" unique_id=1126406035]
 layout_mode = 2
-
-[node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=997633570]
-layout_mode = 2
-
-[node name="SpinButton" type="Button" parent="VBoxContainer" unique_id=140017875]
-layout_mode = 2
+horizontal_alignment = 1
 
 [node name="BetInput" type="SpinBox" parent="VBoxContainer" unique_id=278100678]
 layout_mode = 2
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=997633570]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="SpinButton" type="Button" parent="VBoxContainer" unique_id=140017875]
+layout_mode = 2
+text = "Button"
