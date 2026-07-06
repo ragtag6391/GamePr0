@@ -1,8 +1,8 @@
 extends Control
 
-@onready var reel_1: Label = $VBoxContainer/Reels/Reel1
-@onready var reel_2: Label = $VBoxContainer/Reels/Reel2
-@onready var reel_3: Label = $VBoxContainer/Reels/Reel3
+@onready var reel_1: TextureRect = $VBoxContainer/Reels/Reel1
+@onready var reel_2: TextureRect = $VBoxContainer/Reels/Reel2
+@onready var reel_3: TextureRect = $VBoxContainer/Reels/Reel3
 
 @onready var coins_label: Label = $VBoxContainer/CoinsLabel
 @onready var debt_label: Label = $VBoxContainer/DebtLabel
@@ -18,14 +18,34 @@ var debt := 100
 var bet := 5
 var is_spinning := false
 
-var reels: Array[Label]
+var reels: Array[TextureRect]
 
 var symbols := [
-	{"id": "cherry", "display": "CHERRY", "weight": 35},
-	{"id": "lemon", "display": "LEMON", "weight": 30},
-	{"id": "bell", "display": "BELL", "weight": 20},
-	{"id": "skull", "display": "SKULL", "weight": 10},
-	{"id": "seven", "display": "7", "weight": 5}
+	{
+		"id": "radioactive",
+		"texture": preload("res://assets/slots/radioactive.png"),
+		"weight": 35
+	},
+	{
+		"id": "skull",
+		"texture": preload("res://assets/slots/skull.png"),
+		"weight": 25
+	},
+	{
+		"id": "spider",
+		"texture": preload("res://assets/slots/spider.png"),
+		"weight": 20
+	},
+	{
+		"id": "knife",
+		"texture": preload("res://assets/slots/knife.png"),
+		"weight": 15
+	},
+	{
+		"id": "seven",
+		"texture": preload("res://assets/slots/seven.png"),
+		"weight": 5
+	}
 ]
 
 
@@ -43,7 +63,12 @@ func _ready() -> void:
 	result_label.text = "Enter bet, then press SPIN."
 
 	for reel in reels:
-		reel.text = "?"
+		reel.custom_minimum_size = Vector2(160, 160)
+		reel.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		reel.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		
+		var symbol = get_weighted_symbol()
+		reel.texture = symbol["texture"]
 
 	update_ui()
 
@@ -105,16 +130,17 @@ func roll_reels(final_result: Array) -> void:
 	while elapsed < 1.7:
 		for i in range(reels.size()):
 			if elapsed < stop_times[i]:
-				reels[i].text = get_random_symbol_display()
+				var random_symbol = get_random_symbol()
+				reels[i].texture = random_symbol["texture"]
 			elif stopped[i] == false:
-				reels[i].text = final_result[i]["display"]
+				reels[i].texture = final_result[i]["texture"]
 				stopped[i] = true
 
 		await get_tree().create_timer(tick).timeout
 		elapsed += tick
 
 	for i in range(reels.size()):
-		reels[i].text = final_result[i]["display"]
+		reels[i].texture = final_result[i]["texture"]
 
 
 func evaluate_result(result: Array) -> void:
@@ -158,13 +184,13 @@ func get_triple_multiplier(symbol_id: String) -> int:
 	match symbol_id:
 		"seven":
 			return 10
-		"bell":
-			return 6
 		"skull":
+			return 6
+		"knife":
 			return 5
-		"cherry":
+		"spider":
 			return 4
-		"lemon":
+		"radioactive":
 			return 3
 		_:
 			return 2
@@ -187,9 +213,9 @@ func get_weighted_symbol() -> Dictionary:
 	return symbols[0]
 
 
-func get_random_symbol_display() -> String:
+func get_random_symbol() -> Dictionary:
 	var index := rng.randi_range(0, symbols.size() - 1)
-	return str(symbols[index]["display"])
+	return symbols[index]
 
 
 func update_ui() -> void:

@@ -17,13 +17,13 @@ offset_bottom = 40.0
 [node name="Reels" type="HBoxContainer" parent="VBoxContainer" unique_id=931768334]
 layout_mode = 2
 
-[node name="Reel1" type="Label" parent="VBoxContainer/Reels" unique_id=1220369952]
+[node name="Reel1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1791987346]
 layout_mode = 2
 
-[node name="Reel2" type="Label" parent="VBoxContainer/Reels" unique_id=1675427389]
+[node name="Reel2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=899834581]
 layout_mode = 2
 
-[node name="Reel3" type="Label" parent="VBoxContainer/Reels" unique_id=914518625]
+[node name="Reel3" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1511038919]
 layout_mode = 2
 
 [node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=2130362803]
