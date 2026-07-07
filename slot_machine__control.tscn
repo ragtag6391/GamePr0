@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://twgt4k5dbq6t"]
 
 [ext_resource type="Script" uid="uid://cgarrumoc5k5i" path="res://slot_machine__control.gd" id="1_sjw18"]
-[ext_resource type="PackedScene" uid="uid://by0udleble4xd" path="res://slot_payout_receiver.tscn" id="2_um0lv"]
 
 [node name="SlotMachine  Control" type="Control" unique_id=2050197961]
 layout_mode = 3
@@ -95,6 +94,3 @@ horizontal_alignment = 1
 [node name="SpinButton" type="Button" parent="VBoxContainer" unique_id=140017875]
 layout_mode = 2
 text = "Button"
-
-[node name="SlotPayoutReceiver2" parent="." unique_id=1895481206 node_paths=PackedStringArray("slot_machine") instance=ExtResource("2_um0lv")]
-slot_machine = NodePath("")
