@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://1hsbokhoqwrr"]
 
 [ext_resource type="Texture2D" uid="uid://byn75ugwy4ykw" path="res://Assets/Mine (1)/Minas/Textures/SoilRough.jpg" id="1_htuwp"]
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_snhtf"]
 [ext_resource type="Texture2D" uid="uid://d1s6366j6g6m3" path="res://Assets/Mine (1)/Minas/Textures/WoodRough.jpg" id="2_htuwp"]
+[ext_resource type="PackedScene" uid="uid://ck14gurh4acwy" path="res://addons/CardboardCamera/proto_controller.tscn" id="4_a8t5d"]
+[ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="4_nfwx1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pp6wf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -121,11 +122,10 @@ size = Vector3(2.2403107, 1.0263672, 1)
 transform = Transform3D(85.33728, 0, 0, 0, 23.659388, 0, 0, 0, 1.2062157, -0.06833577, 10.800494, 56.39062)
 size = Vector3(1.0576859, 1.2285156, 1)
 
-[node name="ProtoController" parent="." unique_id=1095070410 instance=ExtResource("1_snhtf")]
-transform = Transform3D(-1.224282, 0, -0.70297015, 0, 1.4117484, 0, 0.70297015, 0, -1.224282, -2.231429, 0.13181353, -2.8077667)
-visible = false
-can_sprint = true
+[node name="ProtoController3" parent="." unique_id=351195179 instance=ExtResource("4_a8t5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9330645, 0.110756874, 1.0890069)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1183969538]
-transform = Transform3D(-0.5068085, -0.49058348, 0.7088533, -0.3276129, 0.870194, 0.36801088, -0.79738003, -0.045718446, -0.6017432, 10, 10.275989, -3.229775)
-visible = false
+[node name="CardboardVRCamera3D" parent="ProtoController3/Head" parent_id_path=PackedInt32Array(351195179, 1353698802) index="0" unique_id=626488266]
+script = ExtResource("4_nfwx1")
+
+[editable path="ProtoController3"]
