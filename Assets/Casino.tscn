@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://qdkuereajjub"]
+
+[ext_resource type="PackedScene" uid="uid://cisfbi8acvtob" path="res://Assets/ruined_casino/scene.gltf" id="1_yunes"]
+
+[node name="Node3D" type="Node3D" unique_id=418518628]
+
+[node name="Sketchfab_Scene" parent="." unique_id=460383026 instance=ExtResource("1_yunes")]
