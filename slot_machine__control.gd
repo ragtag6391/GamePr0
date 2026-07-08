@@ -10,8 +10,6 @@ extends Control
 
 var rng := RandomNumberGenerator.new()
 
-var coins := 50
-var debt := 100
 var bet := 5
 var is_spinning := false
 
@@ -96,10 +94,16 @@ func _ready() -> void:
 
 	spin_button.pressed.connect(_on_spin_pressed)
 
+	if GameState.has_signal("coins_changed"):
+		GameState.coins_changed.connect(_on_game_state_changed)
+
+	if GameState.has_signal("debt_changed"):
+		GameState.debt_changed.connect(_on_game_state_changed)
+
 	bet_input.min_value = 1
-	bet_input.max_value = coins
+	bet_input.max_value = max(1, GameState.coins)
 	bet_input.step = 1
-	bet_input.value = bet
+	bet_input.value = min(bet, max(1, GameState.coins))
 
 	for row in range(3):
 		for col in range(3):
@@ -119,6 +123,10 @@ func _ready() -> void:
 	cache_reel_positions()
 
 	queue_redraw()
+
+
+func _on_game_state_changed(_new_amount: int) -> void:
+	update_ui()
 
 
 func get_reel(node_name: String) -> TextureRect:
@@ -211,11 +219,20 @@ func _on_spin_pressed() -> void:
 		result_label.text = "Bet must be at least 1 coin."
 		return
 
-	if bet > coins:
+	if bet > GameState.coins:
 		result_label.text = "You cannot bet more coins than you have."
 		return
 
-	coins -= bet
+	if GameState.debt <= 0:
+		result_label.text = "Debt already cleared."
+		return
+
+	var spent_successfully := GameState.spend_coins(bet)
+
+	if spent_successfully == false:
+		result_label.text = "Not enough coins."
+		return
+
 	is_spinning = true
 	spin_button.disabled = true
 	bet_input.editable = false
@@ -233,12 +250,12 @@ func _on_spin_pressed() -> void:
 
 	is_spinning = false
 
-	if debt <= 0:
-		result_label.text += "\nDebt paid. The door unlocks."
+	if GameState.debt <= 0:
+		result_label.text += "\nDebt cleared. The door unlocks."
 		spin_button.disabled = true
 		bet_input.editable = false
-	elif coins < 1:
-		result_label.text += "\nNo coins left. You failed."
+	elif GameState.coins < 1:
+		result_label.text += "\nNo coins left. Find another way."
 		spin_button.disabled = true
 		bet_input.editable = false
 	else:
@@ -375,23 +392,15 @@ func evaluate_grid(grid: Array) -> void:
 			highlight_lines.append(cells)
 
 	var payout := bet * total_multiplier
-	var net_profit := payout - bet
 
 	if total_multiplier > 0:
-		coins += payout
-
-		if net_profit > 0:
-			debt -= net_profit
-			if debt < 0:
-				debt = 0
+		GameState.add_pending_winnings(payout)
 
 		result_label.text = "WIN!\nPayout: " + str(payout) + " coins."
+		result_label.text += "\nGo to the payout machine."
 
 		for line_text in winning_lines:
 			result_label.text += "\n" + line_text
-
-		if net_profit > 0:
-			result_label.text += "\nDebt reduced by " + str(net_profit) + "."
 	else:
 		result_label.text = "No winning line.\nLost: " + str(bet) + " coins."
 
@@ -438,14 +447,22 @@ func get_random_symbol() -> Dictionary:
 
 
 func update_ui() -> void:
-	coins_label.text = "CURRENT BALANCE = " + str(coins)
-	debt_label.text = "DEBT = " + str(debt)
+	coins_label.text = "CURRENT BALANCE = " + str(GameState.coins)
+	debt_label.text = "DEBT = " + str(GameState.debt)
 	bet_label.text = "BET AMOUNT = " + str(bet)
 
-	bet_input.max_value = max(1, coins)
+	bet_input.max_value = max(1, GameState.coins)
 
-	if bet_input.value > coins and coins > 0:
-		bet_input.value = coins
+	if GameState.coins > 0 and bet_input.value > GameState.coins:
+		bet_input.value = GameState.coins
+
+	if not is_spinning:
+		if GameState.coins < 1 or GameState.debt <= 0:
+			spin_button.disabled = true
+			bet_input.editable = false
+		else:
+			spin_button.disabled = false
+			bet_input.editable = true
 
 
 func style_ui() -> void:

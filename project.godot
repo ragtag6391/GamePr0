@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameState="*uid://cud3qwjjvyf0r"
+GameState="*uid://lx6n1ux5p3jv"
 
 [editor]
 
@@ -30,4 +30,5 @@ version_control/autoload_on_startup=true
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
