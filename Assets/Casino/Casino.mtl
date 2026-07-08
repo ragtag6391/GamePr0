@@ -1,0 +1,315 @@
+# MTL file - created by a modified js OBJExporter
+
+newmtl rojo3
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd rojo3.png
+map_Ke emissiveMap1.png
+map_Pm metalnessMap1.png
+map_Pr metalnessMap1.png
+
+newmtl rosa_oscuro
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd rosa_oscuro.png
+map_Ke emissiveMap2.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+
+newmtl verde2
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd verde2.png
+map_Ke emissiveMap3.png
+map_Pm metalnessMap3.png
+map_Pr metalnessMap3.png
+
+newmtl azul2
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd azul2.png
+map_Ke emissiveMap4.png
+map_Pm metalnessMap4.png
+map_Pr metalnessMap4.png
+norm normalMap4.png
+
+newmtl celeste2
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd celeste2.png
+map_Ke emissiveMap5.png
+map_Pm metalnessMap5.png
+map_Pr metalnessMap5.png
+norm normalMap5.png
+
+newmtl celeste_oscuro
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd celeste_oscuro.png
+map_Ke emissiveMap6.png
+map_Pm metalnessMap6.png
+map_Pr metalnessMap6.png
+
+newmtl marron2
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd marron2.png
+map_Ke emissiveMap7.png
+map_Pm metalnessMap7.png
+map_Pr metalnessMap7.png
+norm normalMap7.png
+
+newmtl naranja
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd naranja.png
+map_Ke emissiveMap8.png
+map_Pm metalnessMap8.png
+map_Pr metalnessMap8.png
+norm normalMap8.png
+
+newmtl naranja3
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd naranja3.png
+map_Ke emissiveMap9.png
+map_Pm metalnessMap9.png
+map_Pr metalnessMap9.png
+norm normalMap9.png
+
+newmtl azul_oscuro
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd azul_oscuro.png
+map_Ke emissiveMap10.png
+map_Pm metalnessMap10.png
+map_Pr metalnessMap10.png
+
+newmtl rojo_oscuro
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd rojo_oscuro.png
+map_Ke emissiveMap11.png
+map_Pm metalnessMap11.png
+map_Pr metalnessMap11.png
+norm normalMap11.png
+
+newmtl rosa
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd rosa_oscuro.png
+map_Ke emissiveMap2.png
+map_Pm metalnessMap2.png
+map_Pr metalnessMap2.png
+norm normalMap12.png
+
+newmtl rosa2
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd rosa2.png
+map_Ke emissiveMap13.png
+map_Pm metalnessMap13.png
+map_Pr metalnessMap13.png
+norm normalMap13.png
+
+newmtl verde
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd verde.png
+map_Ke emissiveMap14.png
+map_Pm metalnessMap14.png
+map_Pr metalnessMap14.png
+norm normalMap14.png
+
+newmtl verde_re_oscuro
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd verde.png
+map_Ke emissiveMap14.png
+map_Pm metalnessMap14.png
+map_Pr metalnessMap14.png
+
+newmtl colorvidrio
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd colorvidrio.png
+map_Ke emissiveMap16.png
+map_Pm metalnessMap16.png
+map_Pr metalnessMap16.png
+
+newmtl marron
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd marron.png
+map_Ke emissiveMap17.png
+map_Pm metalnessMap17.png
+map_Pr metalnessMap17.png
+norm normalMap17.png
+
+newmtl verde_re_oscuro.001
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd verde.png
+map_Ke emissiveMap14.png
+map_Pm metalnessMap14.png
+map_Pr metalnessMap14.png
+
+newmtl verde_re_oscuro.002
+Tr 0.0000
+Tf 1.0000 1.0000 1.0000
+illum 1
+Pm 1
+Pr 1
+Pds 1
+Pl 1
+Ka 1 1 1
+Kd 1 1 1
+Ke 1 1 1
+map_Kd verde.png
+map_Ke emissiveMap14.png
+map_Pm metalnessMap14.png
+map_Pr metalnessMap14.png
