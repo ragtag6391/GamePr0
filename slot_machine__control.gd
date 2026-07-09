@@ -92,7 +92,6 @@ func _ready() -> void:
 	reels_node.add_theme_constant_override("h_separation", 8)
 	reels_node.add_theme_constant_override("v_separation", 8)
 
-	spin_button.pressed.connect(_on_spin_pressed)
 
 	if GameState.has_signal("coins_changed"):
 		GameState.coins_changed.connect(_on_game_state_changed)
@@ -124,7 +123,7 @@ func _ready() -> void:
 
 	queue_redraw()
 
-
+			
 func _on_game_state_changed(_new_amount: int) -> void:
 	update_ui()
 
@@ -209,7 +208,7 @@ func fill_start_grid() -> void:
 		current_grid.append(row_data)
 
 
-func _on_spin_pressed() -> void:
+func spin() -> void:
 	if is_spinning:
 		return
 
