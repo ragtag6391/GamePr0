@@ -3,6 +3,7 @@ extends Node
 var coins: int = 50
 var debt: int = 100
 var pending_winnings: int = 0
+var ui_open := false
 
 signal coins_changed(new_amount: int)
 signal debt_changed(new_amount: int)

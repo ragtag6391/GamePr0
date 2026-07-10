@@ -16,6 +16,8 @@ var is_spinning := false
 var reels := []
 var current_grid := []
 
+var reels_ready := false
+var positions_cached := false
 var base_positions := []
 var reel_step_y := 0.0
 var spin_tick_time := 0.08
@@ -75,6 +77,23 @@ var paylines := [
 ]
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		if visible and is_inside_tree():
+			call_deferred("on_machine_opened")
+
+
+func on_machine_opened() -> void:
+	if not reels_ready:
+		return
+
+	await get_tree().process_frame
+
+	cache_reel_positions()
+	reset_column_positions()
+	queue_redraw()
+
+
 func _ready() -> void:
 	rng.randomize()
 
@@ -86,6 +105,8 @@ func _ready() -> void:
 
 	if not check_nodes_exist():
 		return
+
+	reels_ready = true
 
 	reels_node.columns = 3
 	reels_node.clip_contents = true
@@ -99,6 +120,9 @@ func _ready() -> void:
 
 	if GameState.has_signal("debt_changed"):
 		GameState.debt_changed.connect(_on_game_state_changed)
+
+	if GameState.has_signal("pending_winnings_changed"):
+		GameState.pending_winnings_changed.connect(_on_game_state_changed)
 
 	bet_input.min_value = 1
 	bet_input.max_value = max(1, GameState.coins)
@@ -120,7 +144,9 @@ func _ready() -> void:
 	update_ui()
 
 	await get_tree().process_frame
-	cache_reel_positions()
+
+	if is_visible_in_tree():
+		cache_reel_positions()
 
 	queue_redraw()
 
@@ -136,7 +162,7 @@ func get_reel(node_name: String) -> TextureRect:
 		push_error("Missing reel node: " + node_name)
 		return null
 
-	if node is not TextureRect:
+	if not (node is TextureRect):
 		push_error(node_name + " exists, but it is not a TextureRect.")
 		return null
 
@@ -181,7 +207,26 @@ func check_nodes_exist() -> bool:
 	return true
 
 
-func cache_reel_positions() -> void:
+func cache_reel_positions() -> bool:
+	positions_cached = false
+
+	if not reels_ready:
+		return false
+
+	if not is_visible_in_tree():
+		return false
+
+	if reels.size() != 3:
+		return false
+
+	for row in range(3):
+		if reels[row].size() != 3:
+			return false
+
+		for col in range(3):
+			if reels[row][col] == null:
+				return false
+
 	base_positions.clear()
 
 	for row in range(3):
@@ -192,7 +237,34 @@ func cache_reel_positions() -> void:
 
 		base_positions.append(row_positions)
 
+	if base_positions.size() != 3:
+		return false
+
+	if base_positions[0].size() != 3:
+		return false
+
 	reel_step_y = base_positions[1][0].y - base_positions[0][0].y
+
+	if reel_step_y <= 0:
+		reel_step_y = reels[0][0].size.y + 8
+
+	positions_cached = true
+	return true
+
+
+func reset_column_positions() -> void:
+	if not positions_cached:
+		return
+
+	if base_positions.size() != 3:
+		return
+
+	for row in range(3):
+		if base_positions[row].size() != 3:
+			return
+
+		for col in range(3):
+			reels[row][col].position = base_positions[row][col]
 
 
 func fill_start_grid() -> void:
@@ -211,6 +283,12 @@ func fill_start_grid() -> void:
 
 func _on_spin_pressed() -> void:
 	if is_spinning:
+		return
+
+	await ensure_positions_ready()
+
+	if not positions_cached:
+		result_label.text = "Machine is not ready yet."
 		return
 
 	bet = int(bet_input.value)
@@ -250,12 +328,8 @@ func _on_spin_pressed() -> void:
 
 	is_spinning = false
 
-	if GameState.debt <= 0:
-		result_label.text += "\nDebt cleared. The door unlocks."
-		spin_button.disabled = true
-		bet_input.editable = false
-	elif GameState.coins < 1:
-		result_label.text += "\nNo coins left. Find another way."
+	if GameState.coins < 1:
+		result_label.text += "\nNo inventory coins left."
 		spin_button.disabled = true
 		bet_input.editable = false
 	else:
@@ -264,6 +338,15 @@ func _on_spin_pressed() -> void:
 
 	update_ui()
 	queue_redraw()
+
+
+func ensure_positions_ready() -> void:
+	if positions_cached:
+		return
+
+	await get_tree().process_frame
+	cache_reel_positions()
+	reset_column_positions()
 
 
 func generate_final_grid() -> Array:
@@ -353,12 +436,6 @@ func animate_column_to_final(col: int, final_grid: Array, duration: float) -> vo
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 
-func reset_column_positions() -> void:
-	for row in range(3):
-		for col in range(3):
-			reels[row][col].position = base_positions[row][col]
-
-
 func set_column_to_final(col: int, final_grid: Array) -> void:
 	for row in range(3):
 		current_grid[row][col] = final_grid[row][col]
@@ -396,7 +473,7 @@ func evaluate_grid(grid: Array) -> void:
 	if total_multiplier > 0:
 		GameState.add_pending_winnings(payout)
 
-		result_label.text = "WIN!\nPayout: " + str(payout) + " coins."
+		result_label.text = "WIN!\nPayout ticket: " + str(payout) + " coins."
 		result_label.text += "\nGo to the payout machine."
 
 		for line_text in winning_lines:
