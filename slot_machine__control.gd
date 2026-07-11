@@ -526,7 +526,7 @@ func get_random_symbol() -> Dictionary:
 func update_ui() -> void:
 	coins_label.text = "CURRENT BALANCE = " + str(GameState.coins)
 	debt_label.text = "DEBT = " + str(GameState.debt)
-	bet_label.text = "BET AMOUNT = " + str(bet)
+	bet_label.text = "BET AMOUNT"
 
 	bet_input.max_value = max(1, GameState.coins)
 
@@ -543,23 +543,70 @@ func update_ui() -> void:
 
 
 func style_ui() -> void:
+	# Main text alignment
 	coins_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	debt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	bet_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	result_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
-	coins_label.add_theme_font_size_override("font_size", 24)
-	debt_label.add_theme_font_size_override("font_size", 32)
-	bet_label.add_theme_font_size_override("font_size", 24)
-	result_label.add_theme_font_size_override("font_size", 20)
-	spin_button.add_theme_font_size_override("font_size", 30)
+	# Font sizes
+	coins_label.add_theme_font_size_override("font_size", 30)
+	debt_label.add_theme_font_size_override("font_size", 28)
+	bet_label.add_theme_font_size_override("font_size", 22)
+	result_label.add_theme_font_size_override("font_size", 22)
+	spin_button.add_theme_font_size_override("font_size", 44)
 
-	coins_label.add_theme_color_override("font_color", Color(0.9, 0.86, 0.78))
-	debt_label.add_theme_color_override("font_color", Color(1.0, 0.12, 0.1))
-	bet_label.add_theme_color_override("font_color", Color(0.9, 0.86, 0.78))
-	result_label.add_theme_color_override("font_color", Color(0.85, 0.75, 0.7))
+	# Horror colors
+	coins_label.add_theme_color_override("font_color", Color(0.82, 0.75, 0.62))
+	debt_label.add_theme_color_override("font_color", Color(1.0, 0.12, 0.08))
+	bet_label.add_theme_color_override("font_color", Color(0.75, 0.68, 0.55))
+	result_label.add_theme_color_override("font_color", Color(0.9, 0.75, 0.68))
 
+	# Button text
 	spin_button.text = "SPIN"
+
+	# Make button large
+	spin_button.custom_minimum_size = Vector2(360, 80)
+
+	# Make bet input wider
+	bet_input.custom_minimum_size = Vector2(260, 48)
+
+	# Style panel if it exists
+	var machine_panel := find_child("MachinePanel", true, false) as PanelContainer
+	if machine_panel != null:
+		var panel_style := StyleBoxFlat.new()
+		panel_style.bg_color = Color(0.025, 0.018, 0.015, 0.96)
+		panel_style.border_color = Color(0.45, 0.12, 0.09, 0.9)
+		panel_style.border_width_left = 3
+		panel_style.border_width_right = 3
+		panel_style.border_width_top = 3
+		panel_style.border_width_bottom = 3
+		panel_style.corner_radius_top_left = 8
+		panel_style.corner_radius_top_right = 8
+		panel_style.corner_radius_bottom_left = 8
+		panel_style.corner_radius_bottom_right = 8
+		panel_style.shadow_color = Color(0.0, 0.0, 0.0, 0.8)
+		panel_style.shadow_size = 20
+		machine_panel.add_theme_stylebox_override("panel", panel_style)
+
+	# Style spin button
+	var spin_style := StyleBoxFlat.new()
+	spin_style.bg_color = Color(0.28, 0.04, 0.025, 1.0)
+	spin_style.border_color = Color(0.95, 0.15, 0.08, 0.9)
+	spin_style.border_width_left = 2
+	spin_style.border_width_right = 2
+	spin_style.border_width_top = 2
+	spin_style.border_width_bottom = 2
+	spin_style.corner_radius_top_left = 6
+	spin_style.corner_radius_top_right = 6
+	spin_style.corner_radius_bottom_left = 6
+	spin_style.corner_radius_bottom_right = 6
+	spin_button.add_theme_stylebox_override("normal", spin_style)
+	spin_button.add_theme_stylebox_override("hover", spin_style)
+	spin_button.add_theme_stylebox_override("pressed", spin_style)
+
+	spin_button.add_theme_color_override("font_color", Color(1.0, 0.75, 0.65))
+	spin_button.add_theme_color_override("font_hover_color", Color(1.0, 0.2, 0.1))
 
 
 func _draw() -> void:

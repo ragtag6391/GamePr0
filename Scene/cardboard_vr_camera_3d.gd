@@ -35,15 +35,12 @@ var parent : Node3D
 func _ready() -> void:
 	parent = get_parent() as Node3D
 
-	# Setup left eye
 	LeftEyePivot.add_child(left_camera_3d)
 	LeftEyeSubViewPort.add_child(LeftEyePivot)
 
-	# Setup right eye
 	RightEyePivot.add_child(right_camera_3d)
 	RightEyeSubViewPort.add_child(RightEyePivot)
 
-	# Setup view
 	View = viewScene.instantiate()
 	add_child(View)
 	add_child(LeftEyeSubViewPort)
@@ -54,14 +51,12 @@ func _ready() -> void:
 		RightEyeSubViewPort
 	)
 
-	# Eye offsets
 	left_camera_3d.position.x = -EyesSeparation
 	right_camera_3d.position.x = EyesSeparation
 
 	LeftEyePivot.position.y = EyeHeight
 	RightEyePivot.position.y = EyeHeight
 
-	# Eye convergence
 	left_camera_3d.rotate_object_local(
 		Vector3.UP,
 		deg_to_rad(EyeConvergencyAngle)
@@ -77,6 +72,14 @@ func _input(event):
 	if !Active:
 		return
 
+	# IMPORTANT:
+	# If a machine UI is open, the VR camera must NOT capture the mouse
+	# or rotate the camera.
+	if GameState.ui_open:
+		if Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		return
+
 	# Mouse capture
 	if Handle_Mouse_Capture:
 		if event is InputEventMouseButton and event.pressed:
@@ -85,14 +88,13 @@ func _input(event):
 		elif Input.is_action_just_pressed("ui_cancel"):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-	# Mouse look (PC testing)
+	# Mouse look for PC testing
 	if !UseGyroscope \
 	and event is InputEventMouseMotion \
 	and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 
 		var motion := event as InputEventMouseMotion
 
-		# Horizontal rotation
 		if RotateParent and parent:
 			parent.rotate_y(
 				-motion.relative.x * Mouse_Sensitivity
@@ -106,7 +108,6 @@ func _input(event):
 			-motion.relative.x * Mouse_Sensitivity
 		)
 
-		# Vertical rotation
 		LeftEyePivot.rotate_object_local(
 			Vector3.RIGHT,
 			-motion.relative.y * Mouse_Sensitivity
@@ -117,7 +118,6 @@ func _input(event):
 			-motion.relative.y * Mouse_Sensitivity
 		)
 
-		# Clamp pitch
 		LeftEyePivot.rotation.x = clamp(
 			LeftEyePivot.rotation.x,
 			deg_to_rad(-85),
@@ -135,7 +135,6 @@ func _process(_delta: float) -> void:
 	if !Active or !parent:
 		return
 
-	# Keep eyes attached to player
 	LeftEyePivot.global_position = Vector3(
 		parent.global_position.x,
 		parent.global_position.y + EyeHeight,
@@ -148,7 +147,10 @@ func _process(_delta: float) -> void:
 		parent.global_position.z
 	)
 
-	# Gyroscope controls (Android)
+	# If UI is open, keep the camera in place but stop gyroscope rotation.
+	if GameState.ui_open:
+		return
+
 	if UseGyroscope:
 		var gyroscope := Input.get_gyroscope()
 

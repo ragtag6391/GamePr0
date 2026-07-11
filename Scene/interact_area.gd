@@ -21,15 +21,17 @@ func _ready() -> void:
 		target_ui.visible = false
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed and not event.echo and event.keycode == KEY_E:
 			if player_inside and target_ui != null and target_ui.visible == false:
 				open_machine_ui()
+				get_viewport().set_input_as_handled()
 
 		if event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
 			if target_ui != null and target_ui.visible:
 				close_machine_ui()
+				get_viewport().set_input_as_handled()
 
 
 func _on_body_entered(body: Node) -> void:

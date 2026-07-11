@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bm6w4dts78lxe"]
+
+[ext_resource type="Script" uid="uid://b0oqh4cwihyos" path="res://debt_collector_machine.gd" id="1_sr8la"]
+
+[node name="DebtCollectorMachine" type="Control" unique_id=1832695991]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sr8la")
+
+[node name="DarknessOverlay" type="ColorRect" parent="." unique_id=1267038721]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 1154.0
+offset_bottom = 653.0
+color = Color(0.107011236, 0.029062286, 0.03527458, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1605223244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 13.05
+anchor_bottom = 5.9
+offset_left = 218.0
+offset_top = 111.0
+offset_right = 474.0
+offset_bottom = 234.0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1893997088]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=957187152]
+layout_mode = 2
+
+[node name="DebtLabel" type="Label" parent="VBoxContainer" unique_id=123096370]
+layout_mode = 2
+
+[node name="PayLabel" type="Label" parent="VBoxContainer" unique_id=33865161]
+layout_mode = 2
+
+[node name="PayInput" type="SpinBox" parent="VBoxContainer" unique_id=1723341214]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=1975602975]
+layout_mode = 2
+
+[node name="PayButton" type="Button" parent="VBoxContainer" unique_id=41956091]
+layout_mode = 2
+text = "INSERT COINS"
+
+[node name="PayAllButton" type="Button" parent="VBoxContainer" unique_id=1984126425]
+layout_mode = 2
+text = "PAY MAX"

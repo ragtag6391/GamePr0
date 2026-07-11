@@ -22,7 +22,19 @@ extends CharacterBody3D
 
 var move_speed := 0.0
 
-func _physics_process(delta):
+
+func _physics_process(delta: float) -> void:
+	# If a machine UI is open, stop player movement.
+	if GameState.ui_open:
+		velocity.x = 0.0
+		velocity.z = 0.0
+		
+		if has_gravity and !is_on_floor():
+			velocity += get_gravity() * delta
+		
+		move_and_slide()
+		return
+
 	# Gravity
 	if has_gravity and !is_on_floor():
 		velocity += get_gravity() * delta
@@ -33,6 +45,7 @@ func _physics_process(delta):
 
 	# Speed
 	move_speed = base_speed
+	
 	if can_sprint and Input.is_action_pressed(input_sprint):
 		move_speed = sprint_speed
 
@@ -44,9 +57,8 @@ func _physics_process(delta):
 			input_back
 		)
 
-		# Move relative to the Head's direction
-		var forward = -head.global_transform.basis.z
-		var right = head.global_transform.basis.x
+		var forward := -head.global_transform.basis.z
+		var right := head.global_transform.basis.x
 
 		forward.y = 0
 		right.y = 0
@@ -54,7 +66,7 @@ func _physics_process(delta):
 		forward = forward.normalized()
 		right = right.normalized()
 
-		var move_dir = (
+		var move_dir := (
 			right * input_dir.x +
 			forward * input_dir.y
 		).normalized()
