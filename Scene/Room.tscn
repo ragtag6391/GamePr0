@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b38vvk43ismxk" path="res://Assets/Casino/Can.glb" id="8_rcj2o"]
 [ext_resource type="PackedScene" uid="uid://chpdcg47g3o7b" path="res://Assets/Casino/Horn.glb" id="9_oixoc"]
 [ext_resource type="Script" uid="uid://cvu15iwdvi71g" path="res://Scene/interact_area.gd" id="10_oixoc"]
-[ext_resource type="Script" uid="uid://cew00cuogh2fj" path="res://Scene/hud.gd" id="11_r4tb0"]
 [ext_resource type="PackedScene" uid="uid://c5sncnje7dtip" path="res://Scene/payout_machine.tscn" id="12_oixoc"]
 [ext_resource type="PackedScene" uid="uid://bm6w4dts78lxe" path="res://debt_collector_machine.tscn" id="13_oixoc"]
 
@@ -42,9 +41,17 @@ directional_shadow_max_distance = 60.6
 [node name="ProtoController3" parent="." unique_id=351195179 instance=ExtResource("4_a8t5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9330645, 0.110756874, 1.0890069)
 visible = false
+can_jump = false
+jump_velocity = 2.0
 
 [node name="CardboardVRCamera3D" parent="ProtoController3/Head" parent_id_path=PackedInt32Array(351195179, 1353698802) index="0" unique_id=626488266]
 script = ExtResource("4_nfwx1")
+ShowHUD = true
+HUDDistance = 2.2
+HUDX = -0.42
+HUDY = 0.26
+HUDFontSize = 32
+HUDPixelSize = 0.0022
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1064748552]
 
@@ -105,15 +112,6 @@ target_ui_path = NodePath("../../UIOverlay/PayoutMachine")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PayoutMachineWorld/InteractArea" unique_id=767802813]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.504845, 1.8955264, -7.2042146)
 shape = SubResource("BoxShape3D_r4tb0")
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=793335143]
-layer = 20
-script = ExtResource("11_r4tb0")
-
-[node name="StatsLabel" type="Label" parent="HUD" unique_id=966201415]
-custom_minimum_size = Vector2(20, 20)
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="UIOverlay" type="CanvasLayer" parent="." unique_id=1615431920]
 
