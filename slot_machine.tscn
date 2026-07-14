@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://beaqd7ypg10t2"]
+
+[ext_resource type="PackedScene" uid="uid://twgt4k5dbq6t" path="res://slot_machine__control.tscn" id="1_agdmm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nmlme"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6cki"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_nmlme")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_knkoj"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_i6cki")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_842tv"]
+
+[node name="SlotMachine" type="StaticBody3D" unique_id=1240566198]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1028409357]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_knkoj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1582197665]
+transform = Transform3D(-8.742277e-08, -1.4166794, -0.0070587154, 0, 1.4117429, -0.007083398, 1.9999998, -6.192502e-08, -3.0854624e-10, 0, 0, 0)
+shape = SubResource("BoxShape3D_842tv")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=176154440]
+
+[node name="SlotMachineUI" parent="SubViewport" unique_id=2050197961 instance=ExtResource("1_agdmm")]
+visible = false

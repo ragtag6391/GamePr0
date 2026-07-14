@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://1hsbokhoqwrr"]
 
-[ext_resource type="PackedScene" uid="uid://beqyp8nhfufru" path="res://Assets/Casino/Casino.glb" id="3_htuwp"]
+[ext_resource type="PackedScene" uid="uid://beqyp8nhfufru" path="res://Assets/Casino.glb" id="3_htuwp"]
 [ext_resource type="PackedScene" uid="uid://ck14gurh4acwy" path="res://addons/CardboardCamera/proto_controller.tscn" id="4_a8t5d"]
-[ext_resource type="PackedScene" uid="uid://b6y5w2dgmt75y" path="res://Assets/Casino/Ceiling.glb" id="4_ajdsb"]
-[ext_resource type="PackedScene" uid="uid://twgt4k5dbq6t" path="res://Scene/slot_machine__control.tscn" id="4_dfbbm"]
+[ext_resource type="PackedScene" uid="uid://b6y5w2dgmt75y" path="res://Assets/Ceiling.glb" id="4_ajdsb"]
+[ext_resource type="PackedScene" uid="uid://twgt4k5dbq6t" path="res://slot_machine__control.tscn" id="4_dfbbm"]
 [ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="4_nfwx1"]
 [ext_resource type="PackedScene" uid="uid://dpubcku1jvogx" path="res://Assets/Casino/Axe.glb" id="5_32h1h"]
 [ext_resource type="PackedScene" uid="uid://cxx0uhebi8q6t" path="res://Assets/Casino/Bat.glb" id="6_ajdsb"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b38vvk43ismxk" path="res://Assets/Casino/Can.glb" id="8_rcj2o"]
 [ext_resource type="PackedScene" uid="uid://chpdcg47g3o7b" path="res://Assets/Casino/Horn.glb" id="9_oixoc"]
 [ext_resource type="Script" uid="uid://cvu15iwdvi71g" path="res://Scene/interact_area.gd" id="10_oixoc"]
-[ext_resource type="PackedScene" uid="uid://c5sncnje7dtip" path="res://Scene/payout_machine.tscn" id="12_oixoc"]
+[ext_resource type="PackedScene" uid="uid://c5sncnje7dtip" path="res://payout_machine.tscn" id="12_oixoc"]
 [ext_resource type="PackedScene" uid="uid://bm6w4dts78lxe" path="res://debt_collector_machine.tscn" id="13_oixoc"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nfwx1"]
@@ -27,7 +27,7 @@ size = Vector3(0.20324707, 0.2064209, 0.13305664)
 [node name="Node3D" type="Node3D" unique_id=1815980703]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1616666073]
-transform = Transform3D(-0.3962682, 0.9167491, 0.050424404, -0.8093938, -0.3747343, 0.45216793, 0.43342027, 0.13836657, 0.8905064, -24.09378, 150.1695, 131.49016)
+transform = Transform3D(0.07539679, 0.4836742, 0.87199444, 0.9957629, 0.009646431, -0.09144904, -0.05264321, 0.87519485, -0.48089758, 10.054582, 5.083994, -11.331973)
 light_energy = 2.526
 light_indirect_energy = 0.683
 light_volumetric_fog_energy = 0.0
@@ -135,5 +135,21 @@ target_ui_path = NodePath("../../UIOverlay/DebtCollectorMachine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DebtCollectorUI/InteractArea" unique_id=514129932]
 shape = SubResource("BoxShape3D_8xp22")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=592753636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.671214, 4.9270444, 1)
+light_energy = 9.593
+light_indirect_energy = 1.296
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=163767864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.671214, 1.9270444, -8)
+light_energy = 9.593
+light_indirect_energy = 1.296
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1184804212]
+transform = Transform3D(-4.3711385e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 0, -6, 6, 2.1855695e-07)
+light_energy = 8.407
+spot_range = 50.396
+spot_angle_attenuation = 0.3298769
 
 [editable path="ProtoController3"]

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bsd2d205hwfxc"]
+
+[ext_resource type="Script" uid="uid://dwvxps0f7slv7" path="res://intro.gd" id="1_ayt76"]
+[ext_resource type="PackedScene" uid="uid://ck14gurh4acwy" path="res://addons/CardboardCamera/proto_controller.tscn" id="2_0a7ni"]
+[ext_resource type="Texture2D" uid="uid://dyy8qdi882bmo" path="res://Intro/IntroScene (2).png" id="2_7a8ye"]
+[ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="3_7a8ye"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y72e6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_u2rf6"]
+sky_material = SubResource("ProceduralSkyMaterial_y72e6")
+
+[sub_resource type="Environment" id="Environment_y6ycx"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_u2rf6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0a7ni"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Intro" type="Control" unique_id=2110045421]
+layout_mode = 3
+anchor_right = 0.91200006
+anchor_bottom = 1.0960001
+offset_right = 0.37597656
+offset_bottom = -0.20806885
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ayt76")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1227409239]
+environment = SubResource("Environment_y6ycx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1904270491]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1992748977]
+
+[node name="ProtoController3" parent="." unique_id=351195179 instance=ExtResource("2_0a7ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.668, -3.004, 8.089)
+can_jump = false
+jump_velocity = 2.0
+
+[node name="Mesh" parent="ProtoController3" index="0" unique_id=1950035354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 7)
+
+[node name="Collider" parent="ProtoController3" index="1" unique_id=889658317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 7)
+
+[node name="CardboardVRCamera3D" parent="ProtoController3/Head" parent_id_path=PackedInt32Array(351195179, 1353698802) index="0" unique_id=626488266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6.9999995)
+script = ExtResource("3_7a8ye")
+ShowHUD = true
+HUDDistance = 2.2
+HUDX = -0.42
+HUDY = 0.26
+HUDFontSize = 32
+HUDPixelSize = 0.0022
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=11751314]
+texture = ExtResource("2_7a8ye")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1770948506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -4, 19)
+use_collision = true
+size = Vector3(87, 1, 39)
+material = SubResource("StandardMaterial3D_0a7ni")
+
+[editable path="ProtoController3"]

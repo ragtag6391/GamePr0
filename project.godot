@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3DPr0"
-run/main_scene="uid://1hsbokhoqwrr"
+run/main_scene="uid://bsd2d205hwfxc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
