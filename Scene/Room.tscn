@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://ck14gurh4acwy" path="res://addons/CardboardCamera/proto_controller.tscn" id="4_a8t5d"]
 [ext_resource type="PackedScene" uid="uid://b6y5w2dgmt75y" path="res://Assets/Ceiling.glb" id="4_ajdsb"]
 [ext_resource type="PackedScene" uid="uid://twgt4k5dbq6t" path="res://slot_machine__control.tscn" id="4_dfbbm"]
-[ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="4_nfwx1"]
 [ext_resource type="PackedScene" uid="uid://dpubcku1jvogx" path="res://Assets/Casino/Axe.glb" id="5_32h1h"]
 [ext_resource type="PackedScene" uid="uid://cxx0uhebi8q6t" path="res://Assets/Casino/Bat.glb" id="6_ajdsb"]
 [ext_resource type="PackedScene" uid="uid://c1un2te80gsvh" path="res://Assets/Casino/Box.glb" id="7_0k7h0"]
@@ -44,14 +43,8 @@ visible = false
 can_jump = false
 jump_velocity = 2.0
 
-[node name="CardboardVRCamera3D" parent="ProtoController3/Head" parent_id_path=PackedInt32Array(351195179, 1353698802) index="0" unique_id=626488266]
-script = ExtResource("4_nfwx1")
-ShowHUD = true
-HUDDistance = 2.2
-HUDX = -0.42
-HUDY = 0.26
-HUDFontSize = 32
-HUDPixelSize = 0.0022
+[node name="CardboardVRCamera3D" parent="ProtoController3/Head" parent_id_path=PackedInt32Array(351195179, 1353698802) index="0" unique_id=1615461953]
+UseGyroscope = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1064748552]
 

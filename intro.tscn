@@ -23,6 +23,7 @@ glow_enabled = true
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Intro" type="Control" unique_id=2110045421]
+visible = false
 layout_mode = 3
 anchor_right = 0.91200006
 anchor_bottom = 1.0960001

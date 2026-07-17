@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://gmnhl3gk8w70"]
+
+[ext_resource type="Script" uid="uid://s5ugrpk4rfw4" path="res://addons/cardboard_vr/scripts/cardboard_vr_camera.gd" id="1_vyoep"]
+
+[node name="CardboardVRCamera3D" type="Camera3D" unique_id=1615461953]
+script = ExtResource("1_vyoep")
+metadata/_custom_type_script = "uid://s5ugrpk4rfw4"
