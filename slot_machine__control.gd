@@ -8,6 +8,10 @@ extends Control
 @onready var bet_input: SpinBox = find_child("BetInput", true, false) as SpinBox
 @onready var spin_button: Button = find_child("SpinButton", true, false) as Button
 
+var horror_font := load("res://UI/Fonts/Nosifer-Regular.ttf") as FontFile
+
+
+
 var rng := RandomNumberGenerator.new()
 
 var bet := 5
@@ -28,27 +32,27 @@ var show_faint_paylines := true
 var symbols := [
 	{
 		"id": "radioactive",
-		"texture": preload("res://assets/slots/radioactive.png"),
+		"texture": preload("res://Assets/Slots/radioactive.png"),
 		"weight": 35
 	},
 	{
 		"id": "skull",
-		"texture": preload("res://assets/slots/skull.png"),
+		"texture": preload("res://Assets/Slots/skull.png"),
 		"weight": 25
 	},
 	{
 		"id": "spider",
-		"texture": preload("res://assets/slots/spider.png"),
+		"texture": preload("res://Assets/Slots/spider.png"),
 		"weight": 20
 	},
 	{
 		"id": "knife",
-		"texture": preload("res://assets/slots/knife.png"),
+		"texture": preload("res://Assets/Slots/knife.png"),
 		"weight": 15
 	},
 	{
 		"id": "seven",
-		"texture": preload("res://assets/slots/seven.png"),
+		"texture": preload("res://Assets/Slots/seven.png"),
 		"weight": 5
 	}
 ]
@@ -86,12 +90,11 @@ func _notification(what: int) -> void:
 func on_machine_opened() -> void:
 	if not reels_ready:
 		return
-
 	await get_tree().process_frame
-
 	cache_reel_positions()
 	reset_column_positions()
 	queue_redraw()
+	_grab_main_focus()   # <-- add this
 
 
 func _ready() -> void:
@@ -109,10 +112,13 @@ func _ready() -> void:
 	reels_ready = true
 
 	reels_node.columns = 3
+	reels_node.columns = 3
+	reels_node.clip_contents = true
+	
 	reels_node.clip_contents = true
 	reels_node.add_theme_constant_override("h_separation", 8)
 	reels_node.add_theme_constant_override("v_separation", 8)
-
+	reels_node.position.x += 190
 	spin_button.pressed.connect(_on_spin_pressed)
 
 	if GameState.has_signal("coins_changed"):
@@ -284,7 +290,6 @@ func fill_start_grid() -> void:
 func _on_spin_pressed() -> void:
 	if is_spinning:
 		return
-
 	await ensure_positions_ready()
 
 	if not positions_cached:
@@ -338,7 +343,7 @@ func _on_spin_pressed() -> void:
 
 	update_ui()
 	queue_redraw()
-
+	_grab_main_focus()
 
 func ensure_positions_ready() -> void:
 	if positions_cached:
@@ -543,71 +548,128 @@ func update_ui() -> void:
 
 
 func style_ui() -> void:
+	
+	coins_label.add_theme_font_override("font", horror_font)
+	debt_label.add_theme_font_override("font", horror_font)
+	coins_label.add_theme_font_size_override("font_size", 28)
+	debt_label.add_theme_font_size_override("font_size", 32)
 	# Main text alignment
 	coins_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	debt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	bet_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	result_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
-	# Font sizes
-	coins_label.add_theme_font_size_override("font_size", 30)
-	debt_label.add_theme_font_size_override("font_size", 28)
-	bet_label.add_theme_font_size_override("font_size", 22)
-	result_label.add_theme_font_size_override("font_size", 22)
-	spin_button.add_theme_font_size_override("font_size", 44)
+	# Font sizes (slightly smaller overall since panel is shrinking)
+	coins_label.add_theme_font_size_override("font_size", 26)
+	debt_label.add_theme_font_size_override("font_size", 30)
+	bet_label.add_theme_font_size_override("font_size", 18)
+	result_label.add_theme_font_size_override("font_size", 19)
+	spin_button.add_theme_font_size_override("font_size", 38)
 
-	# Horror colors
-	coins_label.add_theme_color_override("font_color", Color(0.82, 0.75, 0.62))
-	debt_label.add_theme_color_override("font_color", Color(1.0, 0.12, 0.08))
-	bet_label.add_theme_color_override("font_color", Color(0.75, 0.68, 0.55))
-	result_label.add_theme_color_override("font_color", Color(0.9, 0.75, 0.68))
+	# Sickly, decayed color palette
+	coins_label.add_theme_color_override("font_color", Color(0.7, 0.65, 0.5))
+	debt_label.add_theme_color_override("font_color", Color(0.85, 0.05, 0.03))
+	bet_label.add_theme_color_override("font_color", Color(0.55, 0.5, 0.42))
+	result_label.add_theme_color_override("font_color", Color(0.78, 0.62, 0.55))
+	_style_button_rustic(spin_button, 22)
+	spin_button.text = "spin"
+	
+	_style_button_image(spin_button, "res://UI/SlotMachine/SlotMachineButton.png")
+	spin_button.text = "spin"
+	# Distressed text shadows (gives a scratched, decaying look)
+	for lbl in [coins_label, debt_label, bet_label, result_label]:
+		lbl.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+		lbl.add_theme_constant_override("shadow_offset_x", 2)
+		lbl.add_theme_constant_override("shadow_offset_y", 2)
+		lbl.add_theme_constant_override("shadow_outline_size", 1)
+
+	# Debt label gets a slow, sickly pulse - like it's breathing
+	var debt_pulse := create_tween()
+	debt_pulse.set_loops()
+	debt_pulse.tween_property(debt_label, "modulate", Color(1.0, 0.3, 0.25), 1.2).set_trans(Tween.TRANS_SINE)
+	debt_pulse.tween_property(debt_label, "modulate", Color(1.0, 1.0, 1.0), 1.2).set_trans(Tween.TRANS_SINE)
 
 	# Button text
 	spin_button.text = "SPIN"
+	spin_button.custom_minimum_size = Vector2(250, 100)
+	bet_input.custom_minimum_size = Vector2(180, 60)
 
-	# Make button large
-	spin_button.custom_minimum_size = Vector2(360, 80)
-
-	# Make bet input wider
-	bet_input.custom_minimum_size = Vector2(260, 48)
-
-	# Style panel if it exists
-	var machine_panel := find_child("MachinePanel", true, false) as PanelContainer
+	# --- Shrink + center the whole panel ---
+	var machine_panel := find_child("MachinePanel", true, false) as Control
 	if machine_panel != null:
+		machine_panel.custom_minimum_size = Vector2(360, 0)
+		machine_panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		machine_panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+
+		# Wrap in centering if not already inside one
+		var parent := machine_panel.get_parent()
+		if parent != null and not (parent is CenterContainer):
+			var center := CenterContainer.new()
+			center.set_anchors_preset(Control.PRESET_FULL_RECT)
+			var idx := machine_panel.get_index()
+			parent.remove_child(machine_panel)
+			parent.add_child(center)
+			parent.move_child(center, idx)
+			center.add_child(machine_panel)
+
+	# Style panel: sharp corners, torn/bleeding border look
+	if machine_panel is PanelContainer:
 		var panel_style := StyleBoxFlat.new()
-		panel_style.bg_color = Color(0.025, 0.018, 0.015, 0.96)
-		panel_style.border_color = Color(0.45, 0.12, 0.09, 0.9)
-		panel_style.border_width_left = 3
-		panel_style.border_width_right = 3
-		panel_style.border_width_top = 3
-		panel_style.border_width_bottom = 3
-		panel_style.corner_radius_top_left = 8
-		panel_style.corner_radius_top_right = 8
-		panel_style.corner_radius_bottom_left = 8
-		panel_style.corner_radius_bottom_right = 8
-		panel_style.shadow_color = Color(0.0, 0.0, 0.0, 0.8)
-		panel_style.shadow_size = 20
-		machine_panel.add_theme_stylebox_override("panel", panel_style)
+		panel_style.bg_color = Color(0.015, 0.01, 0.01, 0.3)
+		panel_style.border_color = Color(0.5, 0.0, 0.0, 0.85)
+		panel_style.border_width_left = 2
+		panel_style.border_width_right = 2
+		panel_style.border_width_top = 2
+		panel_style.border_width_bottom = 2
+		# Sharp corners read as more unsettling than rounded ones
+		panel_style.corner_radius_top_left = 0
+		panel_style.corner_radius_top_right = 0
+		panel_style.corner_radius_bottom_left = 0
+		panel_style.corner_radius_bottom_right = 0
+		panel_style.shadow_color = Color(0.4, 0.0, 0.0, 0.35)
+		panel_style.shadow_size = 24
+		panel_style.expand_margin_left = 14
+		panel_style.expand_margin_right = 14
+		panel_style.expand_margin_top = 14
+		panel_style.expand_margin_bottom = 14
+		(machine_panel as PanelContainer).add_theme_stylebox_override("panel", panel_style)
 
-	# Style spin button
-	var spin_style := StyleBoxFlat.new()
-	spin_style.bg_color = Color(0.28, 0.04, 0.025, 1.0)
-	spin_style.border_color = Color(0.95, 0.15, 0.08, 0.9)
-	spin_style.border_width_left = 2
-	spin_style.border_width_right = 2
-	spin_style.border_width_top = 2
-	spin_style.border_width_bottom = 2
-	spin_style.corner_radius_top_left = 6
-	spin_style.corner_radius_top_right = 6
-	spin_style.corner_radius_bottom_left = 6
-	spin_style.corner_radius_bottom_right = 6
-	spin_button.add_theme_stylebox_override("normal", spin_style)
-	spin_button.add_theme_stylebox_override("hover", spin_style)
-	spin_button.add_theme_stylebox_override("pressed", spin_style)
+		# Slow pulsing border glow - like something behind it is alive
+		var glow_tween := create_tween()
+		glow_tween.set_loops()
+		glow_tween.tween_method(
+			func(a: float): panel_style.border_color = Color(0.5, 0.0, 0.0, a),
+			0.5, 0.95, 1.8
+		).set_trans(Tween.TRANS_SINE)
+		glow_tween.tween_method(
+			func(a: float): panel_style.border_color = Color(0.5, 0.0, 0.0, a),
+			0.95, 0.5, 1.8
+		).set_trans(Tween.TRANS_SINE)
 
-	spin_button.add_theme_color_override("font_color", Color(1.0, 0.75, 0.65))
-	spin_button.add_theme_color_override("font_hover_color", Color(1.0, 0.2, 0.1))
+	# Style spin button: cracked-blood look, sharp corners
 
+
+func _style_button_image(btn: Button, texture_path: String, font_size: int = 22) -> void:
+	var tex := load(texture_path) as Texture2D
+
+	var sb := StyleBoxTexture.new()
+	sb.texture = tex
+	# These margins protect the ornate corners from stretching -
+	# tune these numbers to roughly match how deep the blood-drip
+	# corner flourish extends into the image, in pixels.
+	sb.texture_margin_left = 40
+	sb.texture_margin_right = 40
+	sb.texture_margin_top = 30
+	sb.texture_margin_bottom = 30
+
+	btn.add_theme_stylebox_override("normal", sb)
+	btn.add_theme_stylebox_override("hover", sb)
+	btn.add_theme_stylebox_override("pressed", sb)
+	btn.add_theme_stylebox_override("focus", sb)
+
+	btn.add_theme_color_override("font_color", Color(0.85, 0.82, 0.78))
+	btn.add_theme_color_override("font_hover_color", Color(1.0, 0.95, 0.9))
+	btn.add_theme_font_size_override("font_size", font_size)
 
 func _draw() -> void:
 	if reels.size() != 3:
@@ -626,7 +688,10 @@ func _draw() -> void:
 	for cells in highlight_lines:
 		draw_payline(cells, Color(1.0, 0.05, 0.02, 0.95), 8.0)
 
-
+func _grab_main_focus() -> void:
+	if spin_button != null and not spin_button.disabled:
+		spin_button.grab_focus()
+		
 func draw_payline(cells: Array, color: Color, width: float) -> void:
 	var p0 := get_cell_center(int(cells[0][0]), int(cells[0][1]))
 	var p1 := get_cell_center(int(cells[1][0]), int(cells[1][1]))
@@ -648,3 +713,44 @@ func get_cell_center(row: int, col: int) -> Vector2:
 	var local_center: Vector2 = cell_center - self_rect.position
 
 	return local_center
+
+
+func _adjust_amount(direction: int) -> void:
+	if is_spinning:
+		return
+	if direction < 0:
+		bet_input.value = max(bet_input.min_value, bet_input.value - bet_input.step)
+	else:
+		bet_input.value = min(bet_input.max_value, bet_input.value + bet_input.step)
+	spin_button.grab_focus()
+	
+func _style_button_rustic(btn: Button, font_size: int = 20) -> void:
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = Color(0.09, 0.067, 0.051, 1.0)
+	normal.border_color = Color(0.22, 0.145, 0.098, 1.0)
+	normal.set_border_width_all(1)
+	normal.border_width_top = 2
+	normal.set_corner_radius_all(10)
+
+	var hover := StyleBoxFlat.new()
+	hover.bg_color = Color(0.12, 0.09, 0.07, 1.0)
+	hover.border_color = Color(0.28, 0.19, 0.13, 1.0)
+	hover.set_border_width_all(1)
+	hover.border_width_top = 2
+	hover.set_corner_radius_all(10)
+
+	var pressed := StyleBoxFlat.new()
+	pressed.bg_color = Color(0.06, 0.045, 0.035, 1.0)
+	pressed.border_color = Color(0.18, 0.12, 0.08, 1.0)
+	pressed.set_border_width_all(1)
+	pressed.set_corner_radius_all(10)
+
+	btn.add_theme_stylebox_override("normal", normal)
+	btn.add_theme_stylebox_override("hover", hover)
+	btn.add_theme_stylebox_override("pressed", pressed)
+	btn.add_theme_stylebox_override("focus", hover)
+
+	btn.add_theme_color_override("font_color", Color(0.65, 0.54, 0.41))
+	btn.add_theme_color_override("font_hover_color", Color(0.72, 0.60, 0.46))
+	btn.add_theme_color_override("font_pressed_color", Color(0.55, 0.45, 0.34))
+	btn.add_theme_font_size_override("font_size", font_size)

@@ -1,10 +1,10 @@
 class_name CardboardVRCamera3D
-extends Camera3D
+extends Node3D
 
 @export var Active: bool = true
 
 @export_category("Controls")
-@export var UseGyroscope: bool = false
+@export var UseGyroscope: bool = true
 @export var Mouse_Sensitivity: float = 0.003
 @export var GyroscopeFactor: float = 0.2
 @export var RotateParent: bool = true

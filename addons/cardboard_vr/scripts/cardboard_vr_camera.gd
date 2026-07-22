@@ -11,6 +11,15 @@ extends Camera3D
 @export var Handle_Mouse_Capture : bool = true
 @export var Input_Cancel : String = "cancel"
 
+# --- Gamepad right-stick look (added) ---
+@export var UseGamepad : bool = true
+@export var GamepadFactor : float = 2.0          # radians/sec at full stick tilt
+@export var Look_Left : String = "look_left"
+@export var Look_Right : String = "look_right"
+@export var Look_Up : String = "look_up"
+@export var Look_Down : String = "look_down"
+# ----------------------------------------
+
 @export_category("Eyes")
 @export_range(0.01, 0.1) var EyesSeparation : float = 0.032
 @export_range(0.0, 5.0) var EyeHeight : float = 0.8
@@ -46,6 +55,17 @@ func _ready() -> void:
 	# Setup view
 	View = viewScene.instantiate()
 	add_child(View)
+	GameState.right_eye_control = View.right_eye_control
+	GameState.left_eye_control = View.left_eye_control
+	var right_viewport := GameState.right_eye_control.get_node("SlotMachineDisplay/SubViewport") as SubViewport
+	var left_display := GameState.left_eye_control.get_node("SlotMachineDisplay") as TextureRect
+	var right_payout := GameState.right_eye_control.get_node("PayoutMachineDisplay/SubViewport") as SubViewport
+	var left_payout := GameState.left_eye_control.get_node("PayoutMachineDisplay") as TextureRect
+	var right_debt := GameState.right_eye_control.get_node("DebtCollectorDisplay/SubViewport") as SubViewport
+	var left_debt := GameState.left_eye_control.get_node("DebtCollectorDisplay") as TextureRect
+	left_debt.texture = right_debt.get_texture()
+	left_payout.texture = right_payout.get_texture()
+	left_display.texture = right_viewport.get_texture()
 	add_child(LeftEyeSubViewPort)
 	add_child(RightEyeSubViewPort)
 
@@ -74,7 +94,7 @@ func _ready() -> void:
 
 
 func _input(event):
-	if !Active:
+	if !Active or GameState.ui_open:
 		return
 
 	# Mouse capture
@@ -131,7 +151,7 @@ func _input(event):
 		)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if !Active or !parent:
 		return
 
@@ -147,6 +167,37 @@ func _process(_delta: float) -> void:
 		parent.global_position.y + EyeHeight,
 		parent.global_position.z
 	)
+	if GameState.ui_open:
+		return
+	# --- Gamepad right-stick look (added) ---
+	# Works on PC and on phone (alongside gyro if you want both).
+	if UseGamepad:
+		var look := Input.get_vector(Look_Left, Look_Right, Look_Up, Look_Down)
+		if look != Vector2.ZERO:
+			var yaw := -look.x * GamepadFactor * delta
+			var pitch := -look.y * GamepadFactor * delta
+
+			# Yaw (turn left/right)
+			if RotateParent and parent:
+				parent.rotate_y(yaw)
+			LeftEyePivot.rotate_y(yaw)
+			RightEyePivot.rotate_y(yaw)
+
+			# Pitch (look up/down)
+			LeftEyePivot.rotate_object_local(Vector3.RIGHT, pitch)
+			RightEyePivot.rotate_object_local(Vector3.RIGHT, pitch)
+
+			LeftEyePivot.rotation.x = clamp(
+				LeftEyePivot.rotation.x,
+				deg_to_rad(-85),
+				deg_to_rad(85)
+			)
+			RightEyePivot.rotation.x = clamp(
+				RightEyePivot.rotation.x,
+				deg_to_rad(-85),
+				deg_to_rad(85)
+			)
+	# ----------------------------------------
 
 	# Gyroscope controls (Android)
 	if UseGyroscope:

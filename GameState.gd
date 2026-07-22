@@ -12,6 +12,8 @@ signal pending_winnings_changed(new_amount: int)
 signal ui_open_changed(is_open: bool)
 signal debt_cleared_signal
 
+var right_eye_control: Control = null
+var left_eye_control: Control = null
 
 func set_ui_open(is_open: bool) -> void:
 	ui_open = is_open
@@ -108,3 +110,7 @@ func reset_game() -> void:
 	debt_changed.emit(debt)
 	pending_winnings_changed.emit(pending_winnings)
 	ui_open_changed.emit(ui_open)
+
+func _process(_delta: float) -> void:
+	if ui_open:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

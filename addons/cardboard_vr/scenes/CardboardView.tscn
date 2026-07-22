@@ -2,16 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cvxxnebjghslj" path="res://addons/cardboard_vr/scenes/cardboard_view.gd" id="1_76sec"]
 [ext_resource type="Shader" uid="uid://dm1wai2dl3ol6" path="res://addons/cardboard_vr/shaders/LensBarrelShader.gdshader" id="1_gbn34"]
+[ext_resource type="PackedScene" uid="uid://c5sncnje7dtip" path="res://payout_machine.tscn" id="3_i73ss"]
+[ext_resource type="PackedScene" uid="uid://bm6w4dts78lxe" path="res://Scene/debt_collector_machine.tscn" id="4_4d5mx"]
+[ext_resource type="PackedScene" uid="uid://twgt4k5dbq6t" path="res://slot_machine__control.tscn" id="4_567d8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_76sec"]
 shader = ExtResource("1_gbn34")
 shader_parameter/distortion_strength = 0.5
 shader_parameter/distortion_radius = 1.0
 
-[node name="CardboardView" type="CanvasLayer"]
+[node name="CardboardView" type="CanvasLayer" unique_id=735709552]
 script = ExtResource("1_76sec")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1789259174]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,19 +23,19 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HorizontalDivider" type="HBoxContainer" parent="."]
+[node name="HorizontalDivider" type="HBoxContainer" parent="." unique_id=80613924]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftEyeControl" type="Control" parent="HorizontalDivider"]
+[node name="LeftEyeControl" type="Control" parent="HorizontalDivider" unique_id=14284068]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="LeftEye" type="TextureRect" parent="HorizontalDivider/LeftEyeControl"]
+[node name="LeftEye" type="TextureRect" parent="HorizontalDivider/LeftEyeControl" unique_id=703443922]
 material = SubResource("ShaderMaterial_76sec")
 layout_mode = 1
 anchors_preset = 15
@@ -42,12 +45,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="RightEyeControl" type="Control" parent="HorizontalDivider"]
+[node name="SlotMachineDisplay" type="TextureRect" parent="HorizontalDivider/LeftEyeControl" unique_id=1100066464]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PayoutMachineDisplay" type="TextureRect" parent="HorizontalDivider/LeftEyeControl" unique_id=465955335]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebtCollectorDisplay" type="TextureRect" parent="HorizontalDivider/LeftEyeControl" unique_id=667776271]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RightEyeControl" type="Control" parent="HorizontalDivider" unique_id=1966791025]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="RightEye" type="TextureRect" parent="HorizontalDivider/RightEyeControl"]
+[node name="RightEye" type="TextureRect" parent="HorizontalDivider/RightEyeControl" unique_id=952242747]
 material = SubResource("ShaderMaterial_76sec")
 layout_mode = 1
 anchors_preset = 15
@@ -56,3 +80,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="SlotMachineDisplay" type="SubViewportContainer" parent="HorizontalDivider/RightEyeControl" unique_id=763850927]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HorizontalDivider/RightEyeControl/SlotMachineDisplay" unique_id=1234779299]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 0
+
+[node name="SlotMachineControl" parent="HorizontalDivider/RightEyeControl/SlotMachineDisplay/SubViewport" unique_id=161564314 instance=ExtResource("4_567d8")]
+offset_left = 113.0
+offset_right = 43.0
+offset_bottom = -51.0
+focus_mode = 2
+
+[node name="PayoutMachineDisplay" type="SubViewportContainer" parent="HorizontalDivider/RightEyeControl" unique_id=2040472372]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="HorizontalDivider/RightEyeControl/PayoutMachineDisplay" unique_id=989428599]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 0
+
+[node name="PayoutMachine" parent="HorizontalDivider/RightEyeControl/PayoutMachineDisplay/SubViewport" unique_id=67866944 instance=ExtResource("3_i73ss")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DebtCollectorDisplay" type="SubViewportContainer" parent="HorizontalDivider/RightEyeControl" unique_id=244221697]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HorizontalDivider/RightEyeControl/DebtCollectorDisplay" unique_id=312515095]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 0
+
+[node name="DebtCollectorMachine" parent="HorizontalDivider/RightEyeControl/DebtCollectorDisplay/SubViewport" unique_id=1486363998 instance=ExtResource("4_4d5mx")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2

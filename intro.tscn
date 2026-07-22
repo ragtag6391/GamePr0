@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwvxps0f7slv7" path="res://intro.gd" id="1_ayt76"]
 [ext_resource type="PackedScene" uid="uid://ck14gurh4acwy" path="res://addons/CardboardCamera/proto_controller.tscn" id="2_0a7ni"]
-[ext_resource type="Texture2D" uid="uid://dyy8qdi882bmo" path="res://Intro/IntroScene (2).png" id="2_7a8ye"]
 [ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="3_7a8ye"]
+[ext_resource type="Texture2D" uid="uid://yakilkjbdoa7" path="res://Intro/Intro.png" id="4_0a7ni"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y72e6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,9 +53,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 7)
 [node name="Collider" parent="ProtoController3" index="1" unique_id=889658317]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 7)
 
-[node name="CardboardVRCamera3D" parent="ProtoController3/Head" parent_id_path=PackedInt32Array(351195179, 1353698802) index="0" unique_id=626488266]
+[node name="Head" parent="ProtoController3" index="2" unique_id=1353698802]
+script = null
+
+[node name="CardboardVRCamera3D" parent="ProtoController3/Head" index="0" unique_id=1615461953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6.9999995)
 script = ExtResource("3_7a8ye")
+UseGyroscope = true
 ShowHUD = true
 HUDDistance = 2.2
 HUDX = -0.42
@@ -63,8 +67,11 @@ HUDY = 0.26
 HUDFontSize = 32
 HUDPixelSize = 0.0022
 
+[node name="Camera3D" parent="ProtoController3/Head" index="1" unique_id=1361720841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=11751314]
-texture = ExtResource("2_7a8ye")
+texture = ExtResource("4_0a7ni")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1770948506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -4, 19)

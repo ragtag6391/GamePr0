@@ -9,7 +9,7 @@ extends Control
 @onready var pay_button: Button = find_child("PayButton", true, false) as Button
 @onready var pay_all_button: Button = find_child("PayAllButton", true, false) as Button
 
-
+@export var is_mirror_display: bool = false
 func _ready() -> void:
 	title_label.text = "DEBT COLLECTOR"
 	pay_label.text = "COINS TO INSERT"
@@ -29,6 +29,9 @@ func _ready() -> void:
 	style_ui()
 	update_ui()
 
+func _grab_main_focus() -> void:
+	if pay_all_button != null and not pay_all_button.disabled:
+		pay_all_button.grab_focus()
 
 func _on_game_state_changed(_new_amount: int) -> void:
 	update_ui()
@@ -57,6 +60,7 @@ func _on_pay_pressed() -> void:
 		result_label.text += "\nDebt cleared. Something unlocks."
 
 	update_ui()
+	_grab_main_focus() 
 
 
 func _on_pay_all_pressed() -> void:
@@ -79,8 +83,8 @@ func _on_pay_all_pressed() -> void:
 		result_label.text += "\nDebt cleared. Something unlocks."
 
 	update_ui()
-
-
+	_grab_main_focus() 
+	
 func update_ui() -> void:
 	coins_label.text = "INVENTORY COINS = " + str(GameState.coins)
 	debt_label.text = "DEBT = " + str(GameState.debt)
@@ -101,8 +105,11 @@ func update_ui() -> void:
 
 		if pay_input.value > max_payment:
 			pay_input.value = max_payment
-
-
+func _adjust_amount(direction: int) -> void:
+	if direction < 0:
+		pay_input.value = max(pay_input.min_value, pay_input.value - pay_input.step)
+	else:
+		pay_input.value = min(pay_input.max_value, pay_input.value + pay_input.step)
 func style_ui() -> void:
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	coins_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -123,3 +130,42 @@ func style_ui() -> void:
 	debt_label.add_theme_color_override("font_color", Color(1.0, 0.12, 0.08))
 	pay_label.add_theme_color_override("font_color", Color(0.75, 0.68, 0.55))
 	result_label.add_theme_color_override("font_color", Color(0.85, 0.75, 0.7))
+	_style_button_rustic(pay_button, 18)
+	_style_button_rustic(pay_all_button, 18)
+	pay_button.text = "insert coins"
+	pay_all_button.text = "pay max"
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		if visible and is_inside_tree():
+			_grab_main_focus()
+			
+func _style_button_rustic(btn: Button, font_size: int = 20) -> void:
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = Color(0.09, 0.067, 0.051, 1.0)
+	normal.border_color = Color(0.22, 0.145, 0.098, 1.0)
+	normal.set_border_width_all(1)
+	normal.border_width_top = 2
+	normal.set_corner_radius_all(10)
+
+	var hover := StyleBoxFlat.new()
+	hover.bg_color = Color(0.12, 0.09, 0.07, 1.0)
+	hover.border_color = Color(0.28, 0.19, 0.13, 1.0)
+	hover.set_border_width_all(1)
+	hover.border_width_top = 2
+	hover.set_corner_radius_all(10)
+
+	var pressed := StyleBoxFlat.new()
+	pressed.bg_color = Color(0.06, 0.045, 0.035, 1.0)
+	pressed.border_color = Color(0.18, 0.12, 0.08, 1.0)
+	pressed.set_border_width_all(1)
+	pressed.set_corner_radius_all(10)
+
+	btn.add_theme_stylebox_override("normal", normal)
+	btn.add_theme_stylebox_override("hover", hover)
+	btn.add_theme_stylebox_override("pressed", pressed)
+	btn.add_theme_stylebox_override("focus", hover)
+
+	btn.add_theme_color_override("font_color", Color(0.65, 0.54, 0.41))
+	btn.add_theme_color_override("font_hover_color", Color(0.72, 0.60, 0.46))
+	btn.add_theme_color_override("font_pressed_color", Color(0.55, 0.45, 0.34))
+	btn.add_theme_font_size_override("font_size", font_size)

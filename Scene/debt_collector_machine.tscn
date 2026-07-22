@@ -1,30 +1,32 @@
 [gd_scene format=3 uid="uid://bm6w4dts78lxe"]
 
-[ext_resource type="Script" uid="uid://b0oqh4cwihyos" path="res://debt_collector_machine.gd" id="1_sr8la"]
+[ext_resource type="Script" uid="uid://b0oqh4cwihyos" path="res://Scene/debt_collector_machine.gd" id="1_sr8la"]
+
+[sub_resource type="Theme" id="Theme_lqo2h"]
+Button/colors/icon_hover_color = Color(1, 0.32349998, 0.00999999, 1)
+Button/colors/icon_hover_pressed_color = Color(0.39106372, 5.8358535e-07, 2.1658838e-07, 1)
+Button/colors/icon_normal_color = Color(1, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
 
 [node name="DebtCollectorMachine" type="Control" unique_id=1832695991]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 574.0
+offset_bottom = 648.0
 script = ExtResource("1_sr8la")
-
-[node name="DarknessOverlay" type="ColorRect" parent="." unique_id=1267038721]
-layout_mode = 0
-offset_top = 3.0
-offset_right = 1154.0
-offset_bottom = 653.0
-color = Color(0.107011236, 0.029062286, 0.03527458, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1605223244]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 13.05
-anchor_bottom = 5.9
-offset_left = 218.0
-offset_top = 111.0
-offset_right = 474.0
-offset_bottom = 234.0
+anchor_left = 0.078
+anchor_top = 0.003
+anchor_right = 0.78900003
+anchor_bottom = 0.66700006
+offset_left = 0.22800064
+offset_top = 0.055999994
+offset_right = 0.113983154
+offset_bottom = -0.21603394
+theme = SubResource("Theme_lqo2h")
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1893997088]
@@ -41,6 +43,7 @@ layout_mode = 2
 
 [node name="PayInput" type="SpinBox" parent="VBoxContainer" unique_id=1723341214]
 layout_mode = 2
+alignment = 1
 
 [node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=1975602975]
 layout_mode = 2
@@ -52,3 +55,10 @@ text = "INSERT COINS"
 [node name="PayAllButton" type="Button" parent="VBoxContainer" unique_id=1984126425]
 layout_mode = 2
 text = "PAY MAX"
+
+[node name="DarknessOverlay" type="ColorRect" parent="." unique_id=273530291]
+visible = false
+layout_mode = 0
+offset_right = 1162.0
+offset_bottom = 663.0
+color = Color(0, 0, 0, 0)

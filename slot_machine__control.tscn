@@ -1,40 +1,71 @@
 [gd_scene format=3 uid="uid://twgt4k5dbq6t"]
 
 [ext_resource type="Script" uid="uid://cgarrumoc5k5i" path="res://slot_machine__control.gd" id="1_sjw18"]
+[ext_resource type="Texture2D" uid="uid://bspl4b0tb2ik4" path="res://UI/SlotMachine/SlotMachineBackground.png" id="2_um0lv"]
 
-[node name="SlotMachine  Control" type="Control" unique_id=2050197961]
+[sub_resource type="Theme" id="Theme_um0lv"]
+
+[node name="SlotMachineUI" type="Control" unique_id=2050197961]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 652.0
 script = ExtResource("1_sjw18")
+metadata/_edit_vertical_guides_ = [-351.0]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=806358801]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 63.0
+offset_right = 374.0
+offset_bottom = 605.0
+texture = ExtResource("2_um0lv")
+region_rect = Rect2(381.7588, 22.118958, 660.2256, 761.88104)
 
 [node name="OutsideWorld" type="TextureRect" parent="." unique_id=1846492517]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 207.0
+offset_top = 121.0
+offset_right = 244.0
+offset_bottom = 162.0
 
 [node name="DarknessOverlay" type="ColorRect" parent="." unique_id=1595035652]
+visible = false
 layout_mode = 0
-offset_top = 3.0
-offset_right = 1154.0
-offset_bottom = 653.0
-color = Color(0.107011236, 0.029062286, 0.03527458, 1)
+offset_left = 6.0
+offset_top = 81.0
+offset_right = 374.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 0.4509804)
 
 [node name="MachineFrame" type="Panel" parent="." unique_id=2091796377]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.57100004
 anchor_bottom = 0.95500004
-offset_right = -572.36304
-offset_bottom = -622.66003
+offset_left = 58.0
+offset_top = 56.0
+offset_right = -514.36304
+offset_bottom = -566.66003
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=510914306]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+texture_filter = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.031000001
+anchor_top = 0.13700001
+anchor_right = 0.3
+anchor_bottom = 0.89500004
+offset_left = -1.091999
+offset_top = 88.866
+offset_right = -296.73486
+offset_bottom = -177.34998
+scale = Vector2(0.765, 0.765)
+theme = SubResource("Theme_um0lv")
+alignment = 1
 
 [node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=2130362803]
 layout_mode = 2

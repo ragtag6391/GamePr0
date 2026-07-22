@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ck14gurh4acwy"]
 
 [ext_resource type="Script" uid="uid://1uuml3f3l7di" path="res://addons/CardboardCamera/proto_controller.gd" id="1_nvq6g"]
-[ext_resource type="PackedScene" uid="uid://gmnhl3gk8w70" path="res://cardboard_vr_camera_3d.tscn" id="2_nvq6g"]
+[ext_resource type="PackedScene" uid="uid://gmnhl3gk8w70" path="res://Scene/cardboard_vr_camera_3d.tscn" id="2_nvq6g"]
+[ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="2_tjm8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -12,7 +13,7 @@ albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=351195179]
+[node name="ProtoController3" type="CharacterBody3D" unique_id=351195179]
 script = ExtResource("1_nvq6g")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1950035354]
@@ -27,5 +28,9 @@ shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="." unique_id=1353698802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+script = ExtResource("2_tjm8f")
 
 [node name="CardboardVRCamera3D" parent="Head" unique_id=1615461953 instance=ExtResource("2_nvq6g")]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1361720841]
+fov = 85.16172

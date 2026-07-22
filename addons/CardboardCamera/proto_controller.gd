@@ -12,9 +12,7 @@ extends CharacterBody3D
 
 @export_group("Look")
 @export var mouse_sensitivity := 0.003
-@export var gamepad_sensitivity := 3.0        # NEW — radians/sec at full stick tilt
-@export var min_pitch := -80.0                # NEW — degrees, how far you can look down
-@export var max_pitch := 80.0                 # NEW — degrees, how far you can look up
+@export var gamepad_sensitivity := 3.0
 
 @export_group("Input Actions")
 @export var input_left := "ui_left"
@@ -30,66 +28,119 @@ var move_speed := 0.0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	print("interact events: ", InputMap.action_get_events("interact"))
-	print("look_left events: ", InputMap.action_get_events("look_left"))
-	print("look_right events: ", InputMap.action_get_events("look_right"))
-	print("look_up events: ", InputMap.action_get_events("look_up"))
-	print("look_down events: ", InputMap.action_get_events("look_down"))
+	
+	# Verify input actions exist
+	_verify_input_actions()
+	
+	# Setup cameras based on platform
+	_setup_cameras()
+	
+	print("✓ ProtoController3 ready")
+
+func _verify_input_actions() -> void:
+	"""Check if all required input actions exist"""
+	var required_actions = [
+		"interact",
+		"look_left",
+		"look_right",
+		"look_up",
+		"look_down"
+	]
+	
+	for action in required_actions:
+		var events = InputMap.action_get_events(action)
+		if events.is_empty():
+			print("⚠ WARNING: Input action '%s' not found in Input Map!" % action)
+		else:
+			print("✓ Action '%s': %s" % [action, events])
+
+func _setup_cameras() -> void:
+	"""Setup cameras based on platform"""
+	var debug_camera = head.get_node_or_null("Camera3D")
+	var vr_camera = head.get_node_or_null("CardboardVRCamera3D")
+	
+	if OS.get_name() == "Android":
+		# VR mode: disable debug camera
+		if debug_camera:
+			debug_camera.current = false
+			
+		if vr_camera:
+			vr_camera.current = true
+		print("✓ VR mode active")
+	else:
+		# Debug mode: enable debug camera
+		if debug_camera:
+			debug_camera.current = true
+		if vr_camera:
+			vr_camera.current = false
+		print("✓ Debug mode active")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if GameState.ui_open:
 		return
+	
+	# ONLY handle mouse look on PC debug mode
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		head.rotate_x(-event.relative.y * mouse_sensitivity)
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
+		if OS.get_name() != "Android":  # PC only
+			rotate_y(-event.relative.x * mouse_sensitivity)
+			var debug_camera = head.get_node_or_null("Camera3D")
+			if debug_camera:
+				debug_camera.rotate_x(-event.relative.y * mouse_sensitivity)
+				debug_camera.rotation.x = clamp(debug_camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _physics_process(delta: float) -> void:
+	# Check interact button
 	if Input.is_action_just_pressed("interact"):
-		print("INTERACT PRESSED")
-	# If a machine UI is open, stop player movement and looking.
+		print("✓ INTERACT PRESSED")
+	
+	# ESC key handling
+	if Input.is_action_just_pressed("ui_cancel"):
+		print("✓ ESC PRESSED")
+		if GameState.ui_open:
+			GameState.ui_open = false
+	
+	# If a machine UI is open, stop player movement and looking
 	if GameState.ui_open:
 		velocity.x = 0.0
 		velocity.z = 0.0
-
 		if has_gravity and !is_on_floor():
 			velocity += get_gravity() * delta
-
 		move_and_slide()
 		return
-
-	# Gamepad right-stick look
-	var look_dir := Input.get_vector(
-	"look_left",
-	"look_right",
-	"look_up",
-    "look_down"
-)
-
-	print(look_dir)
-	if look_dir != Vector2.ZERO:
-		print("LOOK:", look_dir)
-		print("HEAD BEFORE:", head.rotation)
-
-		rotate_y(-look_dir.x * gamepad_sensitivity * delta)
-		head.rotate_x(-look_dir.y * gamepad_sensitivity * delta)
-
-		print("HEAD AFTER:", head.rotation)
-
+	
+	# ONLY use gamepad look on PC debug mode (not on Android)
+	if OS.get_name() != "Android":
+		var look_dir := Input.get_vector(
+			"look_left",
+			"look_right",
+			"look_up",
+			"look_down"
+		)
+		
+		if look_dir != Vector2.ZERO:
+			rotate_y(-look_dir.x * gamepad_sensitivity * delta)
+			var debug_camera = head.get_node_or_null("Camera3D")
+			if debug_camera:
+				debug_camera.rotate_x(-look_dir.y * gamepad_sensitivity * delta)
+	
+	# ON ANDROID: CardboardVR plugin handles camera rotation automatically
+	# DO NOT rotate head.rotate_x() or head.rotate_y() on Android
+	# The plugin OWNS the camera and will overwrite any manual rotation
+	
 	# Gravity
 	if has_gravity and !is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Jump
 	if can_jump and Input.is_action_just_pressed(input_jump) and is_on_floor():
 		velocity.y = jump_velocity
-
+	
 	# Speed
 	move_speed = base_speed
-
 	if can_sprint and Input.is_action_pressed(input_sprint):
 		move_speed = sprint_speed
-
+	
+	# Movement
 	if can_move:
 		var input_dir := Input.get_vector(
 			input_left,
@@ -113,5 +164,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, move_speed)
 			velocity.z = move_toward(velocity.z, 0.0, move_speed)
-
+	
 	move_and_slide()
