@@ -36,7 +36,27 @@ func _ready() -> void:
 	_setup_cameras()
 	
 	print("✓ ProtoController3 ready")
+	var win_label := head.get_node_or_null("WinLabel") as Label3D
+	var death_label := head.get_node_or_null("DeathLabel") as Label3D
 
+	GameState.game_won.connect(func():
+		if win_label:
+			win_label.visible = true
+		GameState.ui_open = true
+		_restart_after_delay()
+	)
+	GameState.game_lost.connect(func():
+		if death_label:
+			death_label.visible = true
+		GameState.ui_open = true
+		_restart_after_delay()
+	)
+
+func _restart_after_delay() -> void:
+	await get_tree().create_timer(4.0).timeout
+	GameState.reset_game()
+	get_tree().reload_current_scene()
+	
 func _verify_input_actions() -> void:
 	"""Check if all required input actions exist"""
 	var required_actions = [

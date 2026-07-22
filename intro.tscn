@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ck14gurh4acwy" path="res://addons/CardboardCamera/proto_controller.tscn" id="2_0a7ni"]
 [ext_resource type="Script" uid="uid://b3tpek6714q2q" path="res://Scene/cardboard_vr_camera_3d.gd" id="3_7a8ye"]
 [ext_resource type="Texture2D" uid="uid://yakilkjbdoa7" path="res://Intro/Intro.png" id="4_0a7ni"]
+[ext_resource type="AudioStream" uid="uid://b4nya2oq0vxuh" path="res://Audio/IntroMusic.mp3" id="5_y72e6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y72e6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -78,5 +79,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -4, 19)
 use_collision = true
 size = Vector3(87, 1, 39)
 material = SubResource("StandardMaterial3D_0a7ni")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1084259365]
+stream = ExtResource("5_y72e6")
+volume_db = -5.695
+autoplay = true
 
 [editable path="ProtoController3"]

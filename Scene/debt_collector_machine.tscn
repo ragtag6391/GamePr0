@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b0oqh4cwihyos" path="res://Scene/debt_collector_machine.gd" id="1_sr8la"]
 [ext_resource type="Texture2D" uid="uid://bat2n1imcyw8m" path="res://UI/PayoutMachine/PayoutMachineDisplay.png" id="2_3wrlc"]
-[ext_resource type="SystemFont" uid="uid://bsfc072xa4mvy" path="res://UI/Fonts/Nosifer-Regular3.ttf" id="2_oiacm"]
-[ext_resource type="SystemFont" uid="uid://bmitbgi6nvvlv" path="res://UI/Fonts/Rye-Regular2.ttf" id="3_cpy81"]
-[ext_resource type="SystemFont" uid="uid://b6ad3y1e71kss" path="res://UI/Fonts/Rye-Regular3.ttf" id="4_3oeot"]
-[ext_resource type="SystemFont" uid="uid://coku17qhkqvnd" path="res://UI/Fonts/SpecialElite3.ttf" id="5_x5eeo"]
-[ext_resource type="SystemFont" uid="uid://cg0upydauubc6" path="res://UI/Fonts/Nosifer-Regular4.ttf" id="6_41vuj"]
+[ext_resource type="FontFile" uid="uid://bsfc072xa4mvy" path="res://UI/Fonts/Nosifer-Regular3.ttf" id="2_oiacm"]
+[ext_resource type="FontFile" uid="uid://bmitbgi6nvvlv" path="res://UI/Fonts/Rye-Regular2.ttf" id="3_cpy81"]
+[ext_resource type="FontFile" uid="uid://b6ad3y1e71kss" path="res://UI/Fonts/Rye-Regular3.ttf" id="4_3oeot"]
+[ext_resource type="FontFile" uid="uid://coku17qhkqvnd" path="res://UI/Fonts/SpecialElite3.ttf" id="5_x5eeo"]
+[ext_resource type="FontFile" uid="uid://cg0upydauubc6" path="res://UI/Fonts/Nosifer-Regular4.ttf" id="6_41vuj"]
 
 [sub_resource type="Theme" id="Theme_lqo2h"]
 Button/colors/icon_hover_color = Color(1, 0.32349998, 0.00999999, 1)
@@ -15,6 +15,7 @@ Button/colors/icon_normal_color = Color(1, 0, 0, 1)
 Button/colors/icon_pressed_color = Color(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_41vuj"]
+subpixel_positioning = 0
 
 [node name="DebtCollectorMachine" type="Control" unique_id=1832695991]
 layout_mode = 3

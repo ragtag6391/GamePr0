@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dr2rx6i0lo3ga" path="res://payout_machine.gd" id="1_760l6"]
 [ext_resource type="Texture2D" uid="uid://bat2n1imcyw8m" path="res://UI/PayoutMachine/PayoutMachineDisplay.png" id="2_afod8"]
-[ext_resource type="SystemFont" uid="uid://ky28vgc8bake" path="res://UI/Fonts/Nosifer-Regular.ttf" id="3_s28rm"]
-[ext_resource type="SystemFont" uid="uid://bmurvj1gs4qua" path="res://UI/Fonts/SpecialElite2.ttf" id="4_6a2xj"]
-[ext_resource type="SystemFont" uid="uid://km1m43l27gq" path="res://UI/Fonts/Nosifer-Regular2.ttf" id="4_ffiqo"]
-[ext_resource type="SystemFont" uid="uid://cer6g1vms63cv" path="res://UI/Fonts/Rye-Regular.ttf" id="4_l801s"]
-[ext_resource type="SystemFont" uid="uid://fw8ihyin0thi" path="res://UI/Fonts/IMFellEnglish-Regular.ttf" id="4_qg5e8"]
-[ext_resource type="SystemFont" uid="uid://cq3ro7c50siia" path="res://UI/Fonts/SpecialElite.ttf" id="5_wwpjr"]
+[ext_resource type="FontFile" uid="uid://ky28vgc8bake" path="res://UI/Fonts/Nosifer-Regular.ttf" id="3_s28rm"]
+[ext_resource type="FontFile" uid="uid://bmurvj1gs4qua" path="res://UI/Fonts/SpecialElite2.ttf" id="4_6a2xj"]
+[ext_resource type="FontFile" uid="uid://km1m43l27gq" path="res://UI/Fonts/Nosifer-Regular2.ttf" id="4_ffiqo"]
+[ext_resource type="FontFile" uid="uid://cer6g1vms63cv" path="res://UI/Fonts/Rye-Regular.ttf" id="4_l801s"]
+[ext_resource type="FontFile" uid="uid://fw8ihyin0thi" path="res://UI/Fonts/IMFellEnglish-Regular.ttf" id="4_qg5e8"]
+[ext_resource type="FontFile" uid="uid://cq3ro7c50siia" path="res://UI/Fonts/SpecialElite.ttf" id="5_wwpjr"]
+[ext_resource type="AudioStream" uid="uid://dd6wmwmp8epkw" path="res://Audio/MoneyCredited.mp3" id="9_4x5q5"]
 
 [sub_resource type="Theme" id="Theme_760l6"]
 
@@ -72,3 +73,6 @@ offset_top = -48.0
 offset_right = 467.44598
 offset_bottom = -18.962036
 color = Color(0, 0, 0, 0.1882353)
+
+[node name="CoinsFallingSound" type="AudioStreamPlayer" parent="." unique_id=1516396784]
+stream = ExtResource("9_4x5q5")

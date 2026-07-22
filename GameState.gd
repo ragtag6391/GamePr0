@@ -11,9 +11,21 @@ signal debt_changed(new_amount: int)
 signal pending_winnings_changed(new_amount: int)
 signal ui_open_changed(is_open: bool)
 signal debt_cleared_signal
-
+signal game_won
+signal game_lost
 var right_eye_control: Control = null
 var left_eye_control: Control = null
+var game_over := false
+
+func _check_end_conditions() -> void:
+	if game_over:
+		return
+	if debt <= 0:
+		game_over = true
+		game_won.emit()
+	elif coins <= 0 and debt > 0:
+		game_over = true
+		game_lost.emit()
 
 func set_ui_open(is_open: bool) -> void:
 	ui_open = is_open
@@ -37,13 +49,13 @@ func spend_coins(amount: int) -> bool:
 	
 	coins -= amount
 	coins_changed.emit(coins)
+	_check_end_conditions()
 	return true
 
 
 func add_pending_winnings(amount: int) -> void:
 	if amount <= 0:
 		return
-	
 	pending_winnings += amount
 	pending_winnings_changed.emit(pending_winnings)
 
@@ -84,6 +96,7 @@ func pay_debt(amount: int) -> int:
 		debt_changed.emit(debt)
 		debt_cleared_signal.emit()
 	
+	_check_end_conditions()
 	return actual_payment
 
 
@@ -105,6 +118,7 @@ func reset_game() -> void:
 	pending_winnings = 0
 	ui_open = false
 	debt_cleared = false
+	game_over = false
 	
 	coins_changed.emit(coins)
 	debt_changed.emit(debt)

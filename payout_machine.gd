@@ -6,7 +6,7 @@ extends Control
 @onready var debt_label: Label = $VBoxContainer/DebtLabel
 @onready var result_label: Label = $VBoxContainer/ResultLabel
 @onready var claim_button: Button = $VBoxContainer/ClaimButton
-
+@onready var coins_sound: AudioStreamPlayer = find_child("CoinsFallingSound", true, false) as AudioStreamPlayer
 @export var is_mirror_display: bool = false
 func _ready() -> void:
 	title_label.text = "PAYOUT MACHINE"
@@ -31,6 +31,9 @@ func _on_claim_pressed() -> void:
 		return
 	
 	var claimed := GameState.claim_pending_winnings()
+	
+	if coins_sound != null:
+		coins_sound.play()
 	
 	result_label.text = "The machine spits out " + str(claimed) + " coins."
 	

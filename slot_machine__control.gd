@@ -7,7 +7,8 @@ extends Control
 @onready var result_label: Label = find_child("ResultLabel", true, false) as Label
 @onready var bet_input: SpinBox = find_child("BetInput", true, false) as SpinBox
 @onready var spin_button: Button = find_child("SpinButton", true, false) as Button
-
+@onready var spin_sound: AudioStreamPlayer = find_child("SpinSound", true, false) as AudioStreamPlayer
+@onready var coins_sound: AudioStreamPlayer = find_child("CoinsFallingSound", true, false) as AudioStreamPlayer
 var horror_font := load("res://UI/Fonts/Nosifer-Regular.ttf") as FontFile
 
 
@@ -290,6 +291,7 @@ func fill_start_grid() -> void:
 func _on_spin_pressed() -> void:
 	if is_spinning:
 		return
+
 	await ensure_positions_ready()
 
 	if not positions_cached:
@@ -315,6 +317,9 @@ func _on_spin_pressed() -> void:
 	if spent_successfully == false:
 		result_label.text = "Not enough coins."
 		return
+
+	if spin_sound != null:
+		spin_sound.play()
 
 	is_spinning = true
 	spin_button.disabled = true
@@ -450,19 +455,16 @@ func set_column_to_final(col: int, final_grid: Array) -> void:
 func evaluate_grid(grid: Array) -> void:
 	var total_multiplier := 0
 	var winning_lines := []
-
 	highlight_lines.clear()
 
 	for line in paylines:
 		var cells = line["cells"]
-
 		var r1 := int(cells[0][0])
 		var c1 := int(cells[0][1])
 		var r2 := int(cells[1][0])
 		var c2 := int(cells[1][1])
 		var r3 := int(cells[2][0])
 		var c3 := int(cells[2][1])
-
 		var id_1 := str(grid[r1][c1]["id"])
 		var id_2 := str(grid[r2][c2]["id"])
 		var id_3 := str(grid[r3][c3]["id"])
@@ -477,6 +479,9 @@ func evaluate_grid(grid: Array) -> void:
 
 	if total_multiplier > 0:
 		GameState.add_pending_winnings(payout)
+
+		if coins_sound != null:
+			coins_sound.play()
 
 		result_label.text = "WIN!\nPayout ticket: " + str(payout) + " coins."
 		result_label.text += "\nGo to the payout machine."

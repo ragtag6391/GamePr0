@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cgarrumoc5k5i" path="res://slot_machine__control.gd" id="1_sjw18"]
 [ext_resource type="Texture2D" uid="uid://bspl4b0tb2ik4" path="res://UI/SlotMachine/SlotMachineBackground.png" id="2_um0lv"]
-[ext_resource type="SystemFont" uid="uid://b07wm8rmp1vch" path="res://UI/Fonts/Rye-Regular4.ttf" id="3_prm5d"]
-[ext_resource type="SystemFont" uid="uid://dgm4a7rvjy2lc" path="res://UI/Fonts/SpecialElite4.ttf" id="4_pb8kp"]
-[ext_resource type="SystemFont" uid="uid://f4037sd5akq5" path="res://UI/Fonts/SpecialElite5.ttf" id="5_pb8kp"]
-[ext_resource type="SystemFont" uid="uid://cjs2b1fmgflcs" path="res://UI/Fonts/Rye-Regular5.ttf" id="6_fpjay"]
+[ext_resource type="FontFile" uid="uid://b07wm8rmp1vch" path="res://UI/Fonts/Rye-Regular4.ttf" id="3_prm5d"]
+[ext_resource type="FontFile" uid="uid://dgm4a7rvjy2lc" path="res://UI/Fonts/SpecialElite4.ttf" id="4_pb8kp"]
+[ext_resource type="FontFile" uid="uid://f4037sd5akq5" path="res://UI/Fonts/SpecialElite5.ttf" id="5_pb8kp"]
+[ext_resource type="FontFile" uid="uid://cjs2b1fmgflcs" path="res://UI/Fonts/Rye-Regular5.ttf" id="6_fpjay"]
+[ext_resource type="AudioStream" uid="uid://cdodpubvnl7t8" path="res://Audio/SlotMachine.wav" id="7_naeln"]
+[ext_resource type="AudioStream" uid="uid://c3kb1f8lhd38d" path="res://Audio/SlotMachineWin.wav" id="8_qbare"]
 
 [sub_resource type="Theme" id="Theme_um0lv"]
 
@@ -142,3 +144,13 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_fpjay")
 text = "Button"
+
+[node name="SpinSound" type="AudioStreamPlayer" parent="." unique_id=54086306]
+stream = ExtResource("7_naeln")
+volume_db = -0.19
+bus = &"SFX"
+
+[node name="CoinsFallingSound" type="AudioStreamPlayer" parent="." unique_id=1680514641]
+stream = ExtResource("8_qbare")
+volume_db = -0.24
+bus = &"SFX"

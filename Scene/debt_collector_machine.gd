@@ -8,7 +8,7 @@ extends Control
 @onready var result_label: Label = find_child("ResultLabel", true, false) as Label
 @onready var pay_button: Button = find_child("PayButton", true, false) as Button
 @onready var pay_all_button: Button = find_child("PayAllButton", true, false) as Button
-
+@onready var coin_insert_sound: AudioStreamPlayer = find_child("CoinInsertSound", true, false) as AudioStreamPlayer
 @export var is_mirror_display: bool = false
 func _ready() -> void:
 	title_label.text = "DEBT COLLECTOR"
@@ -54,14 +54,14 @@ func _on_pay_pressed() -> void:
 	if paid <= 0:
 		result_label.text = "The machine refuses."
 	else:
+		if coin_insert_sound != null:
+			coin_insert_sound.play()
 		result_label.text = "Inserted " + str(paid) + " coins."
 
 	if GameState.debt <= 0:
 		result_label.text += "\nDebt cleared. Something unlocks."
 
 	update_ui()
-	_grab_main_focus() 
-
 
 func _on_pay_all_pressed() -> void:
 	if GameState.debt <= 0:
@@ -77,13 +77,15 @@ func _on_pay_all_pressed() -> void:
 	var max_payment: int = int(min(GameState.coins, GameState.debt))
 	var paid: int = GameState.pay_debt(max_payment)
 
+	if coin_insert_sound != null:
+		coin_insert_sound.play()
+
 	result_label.text = "Inserted " + str(paid) + " coins."
 
 	if GameState.debt <= 0:
 		result_label.text += "\nDebt cleared. Something unlocks."
 
 	update_ui()
-	_grab_main_focus() 
 	
 func update_ui() -> void:
 	coins_label.text = "INVENTORY COINS = " + str(GameState.coins)
