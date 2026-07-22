@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cgarrumoc5k5i" path="res://slot_machine__control.gd" id="1_sjw18"]
 [ext_resource type="Texture2D" uid="uid://bspl4b0tb2ik4" path="res://UI/SlotMachine/SlotMachineBackground.png" id="2_um0lv"]
+[ext_resource type="SystemFont" uid="uid://b07wm8rmp1vch" path="res://UI/Fonts/Rye-Regular4.ttf" id="3_prm5d"]
+[ext_resource type="SystemFont" uid="uid://dgm4a7rvjy2lc" path="res://UI/Fonts/SpecialElite4.ttf" id="4_pb8kp"]
+[ext_resource type="SystemFont" uid="uid://f4037sd5akq5" path="res://UI/Fonts/SpecialElite5.ttf" id="5_pb8kp"]
+[ext_resource type="SystemFont" uid="uid://cjs2b1fmgflcs" path="res://UI/Fonts/Rye-Regular5.ttf" id="6_fpjay"]
 
 [sub_resource type="Theme" id="Theme_um0lv"]
 
@@ -15,10 +19,10 @@ metadata/_edit_vertical_guides_ = [-351.0]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=806358801]
 layout_mode = 0
-offset_left = -49.0
-offset_top = 63.0
-offset_right = 374.0
-offset_bottom = 605.0
+offset_left = -85.0
+offset_top = 46.0
+offset_right = 405.0
+offset_bottom = 627.0
 texture = ExtResource("2_um0lv")
 region_rect = Rect2(381.7588, 22.118958, 660.2256, 761.88104)
 
@@ -73,6 +77,7 @@ horizontal_alignment = 1
 
 [node name="DebtLabel" type="Label" parent="VBoxContainer" unique_id=2126073471]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_prm5d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -80,38 +85,48 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+theme_override_constants/v_separation = 20
 columns = 3
 
 [node name="R0C0" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1791987346]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R0C1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=899834581]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R0C2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1511038919]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R1C0" type="TextureRect" parent="VBoxContainer/Reels" unique_id=655701394]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R1C1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=935973064]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R1C2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=786914922]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R2C0" type="TextureRect" parent="VBoxContainer/Reels" unique_id=599125484]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R2C1" type="TextureRect" parent="VBoxContainer/Reels" unique_id=920179479]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="R2C2" type="TextureRect" parent="VBoxContainer/Reels" unique_id=1643048055]
+custom_minimum_size = Vector2(151.195, 111.95)
 layout_mode = 2
 
 [node name="BetLabel" type="Label" parent="VBoxContainer" unique_id=1126406035]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_pb8kp")
 horizontal_alignment = 1
 
 [node name="BetInput" type="SpinBox" parent="VBoxContainer" unique_id=278100678]
@@ -120,8 +135,10 @@ alignment = 1
 
 [node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=997633570]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pb8kp")
 horizontal_alignment = 1
 
 [node name="SpinButton" type="Button" parent="VBoxContainer" unique_id=140017875]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_fpjay")
 text = "Button"

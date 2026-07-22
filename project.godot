@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameState="*uid://lx6n1ux5p3jv"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor]
 
 version_control/autoload_on_startup=true

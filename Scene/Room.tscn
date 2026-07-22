@@ -26,7 +26,7 @@ size = Vector3(0.20324707, 0.2064209, 0.13305664)
 [node name="Node3D" type="Node3D" unique_id=1815980703]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1616666073]
-transform = Transform3D(0.013306138, 0.48191926, 0.8761142, 0.9997256, 0.010469526, -0.020942414, -0.01926506, 0.8761528, -0.48164773, 10.054582, 5.083994, -11.331973)
+transform = Transform3D(-0.0019861246, 0.4817591, 0.87630105, 0.9999388, 0.010471758, -0.00349065, -0.010858069, 0.87624085, -0.48175046, 10.054582, 5.083994, -11.331973)
 light_energy = 3.612
 light_indirect_energy = 0.683
 light_volumetric_fog_energy = 0.0
@@ -47,6 +47,9 @@ script = null
 
 [node name="CardboardVRCamera3D" parent="ProtoController3/Head" index="0" unique_id=1615461953]
 EyesSeparation = 0.047
+
+[node name="Camera3D" parent="ProtoController3/Head" index="1" unique_id=1361720841]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1064748552]
 

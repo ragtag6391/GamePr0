@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://bm6w4dts78lxe"]
 
 [ext_resource type="Script" uid="uid://b0oqh4cwihyos" path="res://Scene/debt_collector_machine.gd" id="1_sr8la"]
+[ext_resource type="Texture2D" uid="uid://bat2n1imcyw8m" path="res://UI/PayoutMachine/PayoutMachineDisplay.png" id="2_3wrlc"]
+[ext_resource type="SystemFont" uid="uid://bsfc072xa4mvy" path="res://UI/Fonts/Nosifer-Regular3.ttf" id="2_oiacm"]
+[ext_resource type="SystemFont" uid="uid://bmitbgi6nvvlv" path="res://UI/Fonts/Rye-Regular2.ttf" id="3_cpy81"]
+[ext_resource type="SystemFont" uid="uid://b6ad3y1e71kss" path="res://UI/Fonts/Rye-Regular3.ttf" id="4_3oeot"]
+[ext_resource type="SystemFont" uid="uid://coku17qhkqvnd" path="res://UI/Fonts/SpecialElite3.ttf" id="5_x5eeo"]
+[ext_resource type="SystemFont" uid="uid://cg0upydauubc6" path="res://UI/Fonts/Nosifer-Regular4.ttf" id="6_41vuj"]
 
 [sub_resource type="Theme" id="Theme_lqo2h"]
 Button/colors/icon_hover_color = Color(1, 0.32349998, 0.00999999, 1)
 Button/colors/icon_hover_pressed_color = Color(0.39106372, 5.8358535e-07, 2.1658838e-07, 1)
 Button/colors/icon_normal_color = Color(1, 0, 0, 1)
 Button/colors/icon_pressed_color = Color(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_41vuj"]
 
 [node name="DebtCollectorMachine" type="Control" unique_id=1832695991]
 layout_mode = 3
@@ -15,28 +23,43 @@ offset_right = 574.0
 offset_bottom = 648.0
 script = ExtResource("1_sr8la")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=245763571]
+modulate = Color(0.56, 0.56, 0.56, 0.83137256)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.2
+offset_left = -148.0
+offset_top = 48.0
+offset_right = 89.0
+offset_bottom = -195.60004
+texture = ExtResource("2_3wrlc")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1605223244]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.078
-anchor_top = 0.003
-anchor_right = 0.78900003
-anchor_bottom = 0.66700006
-offset_left = 0.22800064
-offset_top = 0.055999994
-offset_right = 0.113983154
-offset_bottom = -0.21603394
+anchor_top = 0.061000004
+anchor_right = 0.758
+anchor_bottom = 0.5
+offset_left = 19.228
+offset_top = 77.472
+offset_right = -13.0920105
+offset_bottom = 79.0
 theme = SubResource("Theme_lqo2h")
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1893997088]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oiacm")
 
 [node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=957187152]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cpy81")
 
 [node name="DebtLabel" type="Label" parent="VBoxContainer" unique_id=123096370]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_3oeot")
 
 [node name="PayLabel" type="Label" parent="VBoxContainer" unique_id=33865161]
 layout_mode = 2
@@ -47,13 +70,16 @@ alignment = 1
 
 [node name="ResultLabel" type="Label" parent="VBoxContainer" unique_id=1975602975]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x5eeo")
 
 [node name="PayButton" type="Button" parent="VBoxContainer" unique_id=41956091]
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_41vuj")
 text = "INSERT COINS"
 
 [node name="PayAllButton" type="Button" parent="VBoxContainer" unique_id=1984126425]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_41vuj")
 text = "PAY MAX"
 
 [node name="DarknessOverlay" type="ColorRect" parent="." unique_id=273530291]

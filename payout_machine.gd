@@ -40,7 +40,6 @@ func _on_claim_pressed() -> void:
 func _on_game_state_changed(_new_amount: int) -> void:
 	update_ui()
 
-
 func update_ui() -> void:
 	pending_label.text = "PENDING WINNINGS = " + str(GameState.pending_winnings)
 	inventory_label.text = "INVENTORY COINS = " + str(GameState.coins)
@@ -66,27 +65,33 @@ func style_ui() -> void:
 	inventory_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	debt_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	result_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	
+
+	# Font sizes - matched exactly to Debt Collector's scheme
 	title_label.add_theme_font_size_override("font_size", 36)
-	pending_label.add_theme_font_size_override("font_size", 26)
-	inventory_label.add_theme_font_size_override("font_size", 24)
-	debt_label.add_theme_font_size_override("font_size", 28)
-	result_label.add_theme_font_size_override("font_size", 22)
-	claim_button.add_theme_font_size_override("font_size", 28)
-	
+	inventory_label.add_theme_font_size_override("font_size", 24)   # matches coins_label
+	pending_label.add_theme_font_size_override("font_size", 22)     # matches pay_label
+	debt_label.add_theme_font_size_override("font_size", 32)        # matches debt_label
+	result_label.add_theme_font_size_override("font_size", 22)      # matches result_label
+
+	# Colors - matched exactly to Debt Collector's scheme
 	title_label.add_theme_color_override("font_color", Color(1.0, 0.15, 0.1))
-	pending_label.add_theme_color_override("font_color", Color(0.9, 0.86, 0.78))
 	inventory_label.add_theme_color_override("font_color", Color(0.9, 0.86, 0.78))
-	debt_label.add_theme_color_override("font_color", Color(1.0, 0.12, 0.1))
-	result_label.add_theme_color_override("font_color", Color(0.8, 0.72, 0.65))
-	_style_button_rustic(claim_button, 20)
+	pending_label.add_theme_color_override("font_color", Color(0.75, 0.68, 0.55))
+	debt_label.add_theme_color_override("font_color", Color(1.0, 0.12, 0.08))
+	result_label.add_theme_color_override("font_color", Color(0.85, 0.75, 0.7))
+
+	# --- Claim button ---
+	_style_button_image(claim_button, "res://UI/SlotMachine/SlotMachineButton.png")
 	claim_button.text = "claim coins"
+	claim_button.add_theme_font_size_override("font_size", 28)
+	claim_button.custom_minimum_size = Vector2(400, 110)
 
 func _input(event: InputEvent) -> void:
 	if is_mirror_display:
 		return
 	if not is_visible_in_tree() or not GameState.ui_open:
 		return
+
 func _style_button_rustic(btn: Button, font_size: int = 20) -> void:
 	var normal := StyleBoxFlat.new()
 	normal.bg_color = Color(0.09, 0.067, 0.051, 1.0)
@@ -116,4 +121,23 @@ func _style_button_rustic(btn: Button, font_size: int = 20) -> void:
 	btn.add_theme_color_override("font_color", Color(0.65, 0.54, 0.41))
 	btn.add_theme_color_override("font_hover_color", Color(0.72, 0.60, 0.46))
 	btn.add_theme_color_override("font_pressed_color", Color(0.55, 0.45, 0.34))
+	btn.add_theme_font_size_override("font_size", font_size)
+
+func _style_button_image(btn: Button, texture_path: String, font_size: int = 22) -> void:
+	var tex := load(texture_path) as Texture2D
+	print("LOADED TEXTURE: ", tex)
+	var sb := StyleBoxTexture.new()
+	sb.texture = tex
+	sb.texture_margin_left = 40
+	sb.texture_margin_right = 40
+	sb.texture_margin_top = 30
+	sb.texture_margin_bottom = 30
+
+	btn.add_theme_stylebox_override("normal", sb)
+	btn.add_theme_stylebox_override("hover", sb)
+	btn.add_theme_stylebox_override("pressed", sb)
+	btn.add_theme_stylebox_override("focus", sb)
+
+	btn.add_theme_color_override("font_color", Color(0.85, 0.82, 0.78))
+	btn.add_theme_color_override("font_hover_color", Color(1.0, 0.95, 0.9))
 	btn.add_theme_font_size_override("font_size", font_size)
