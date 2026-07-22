@@ -48,7 +48,7 @@ var right_hud_label: Label3D = Label3D.new()
 
 func _ready() -> void:
 	parent = get_parent() as Node3D
-
+	
 	# Setup left eye
 	LeftEyePivot.add_child(left_camera_3d)
 	LeftEyeSubViewPort.add_child(LeftEyePivot)
@@ -67,7 +67,13 @@ func _ready() -> void:
 		LeftEyeSubViewPort,
 		RightEyeSubViewPort
 	)
-
+	View.SetViewPorts(
+		LeftEyeSubViewPort,
+		RightEyeSubViewPort
+	)	
+	
+	GameState.right_eye_control = View.right_eye_control
+	GameState.left_eye_control = View.left_eye_control
 	# Eye offsets
 	left_camera_3d.position.x = -EyesSeparation
 	right_camera_3d.position.x = EyesSeparation

@@ -39,18 +39,30 @@ func _ready() -> void:
 	var win_label := head.get_node_or_null("WinLabel") as Label3D
 	var death_label := head.get_node_or_null("DeathLabel") as Label3D
 
+	print("win_label found: ", win_label)
+	print("death_label found: ", death_label)
+	
+	
 	GameState.game_won.connect(func():
+		print("WIN SIGNAL RECEIVED")
 		if win_label:
+			print("Setting win_label visible")
 			win_label.visible = true
+		else:
+			print("win_label is NULL!")
 		GameState.ui_open = true
 		_restart_after_delay()
 	)
 	GameState.game_lost.connect(func():
+		print("LOSE SIGNAL RECEIVED")
 		if death_label:
+			print("Setting death_label visible")
 			death_label.visible = true
+		else:
+			print("death_label is NULL!")
 		GameState.ui_open = true
 		_restart_after_delay()
-	)
+)
 
 func _restart_after_delay() -> void:
 	await get_tree().create_timer(4.0).timeout
@@ -129,19 +141,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# ONLY use gamepad look on PC debug mode (not on Android)
-	if OS.get_name() != "Android":
-		var look_dir := Input.get_vector(
-			"look_left",
-			"look_right",
-			"look_up",
-			"look_down"
-		)
-		
-		if look_dir != Vector2.ZERO:
-			rotate_y(-look_dir.x * gamepad_sensitivity * delta)
-			var debug_camera = head.get_node_or_null("Camera3D")
-			if debug_camera:
-				debug_camera.rotate_x(-look_dir.y * gamepad_sensitivity * delta)
+
 	
 	# ON ANDROID: CardboardVR plugin handles camera rotation automatically
 	# DO NOT rotate head.rotate_x() or head.rotate_y() on Android
@@ -168,8 +168,9 @@ func _physics_process(delta: float) -> void:
 			input_forward,
 			input_back
 		)
-		var forward := -transform.basis.z
-		var right := transform.basis.x
+		var forward := -head.global_transform.basis.z
+		var right := head.global_transform.basis.x
+		
 		forward.y = 0
 		right.y = 0
 		forward = forward.normalized()

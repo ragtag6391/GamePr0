@@ -23,7 +23,7 @@ func _check_end_conditions() -> void:
 	if debt <= 0:
 		game_over = true
 		game_won.emit()
-	elif coins <= 0 and debt > 0:
+	elif (coins + pending_winnings) < 1 and debt > 0:
 		game_over = true
 		game_lost.emit()
 

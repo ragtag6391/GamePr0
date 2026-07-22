@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dtjywyot41kgs"]
+
+[ext_resource type="Script" uid="uid://bj6rup8h6dptn" path="res://UI/pause_menu.gd" id="1_05bun"]
+
+[node name="PauseMenu" type="Control" unique_id=830883865]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05bun")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=753561578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.49315646, 0.49315646, 0.49315646, 0.5058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=2094065939]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -144.0
+offset_right = 197.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1760125446]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1272807828]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=100703105]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"

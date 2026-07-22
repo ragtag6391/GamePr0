@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvxxnebjghslj" path="res://addons/cardboard_vr/scenes/cardboard_view.gd" id="1_76sec"]
 [ext_resource type="Shader" uid="uid://dm1wai2dl3ol6" path="res://addons/cardboard_vr/shaders/LensBarrelShader.gdshader" id="1_gbn34"]
+[ext_resource type="PackedScene" uid="uid://dtjywyot41kgs" path="res://UI/PauseMenu.tscn" id="3_4d5mx"]
 [ext_resource type="PackedScene" uid="uid://c5sncnje7dtip" path="res://payout_machine.tscn" id="3_i73ss"]
 [ext_resource type="PackedScene" uid="uid://bm6w4dts78lxe" path="res://Scene/debt_collector_machine.tscn" id="4_4d5mx"]
 [ext_resource type="PackedScene" uid="uid://twgt4k5dbq6t" path="res://slot_machine__control.tscn" id="4_567d8"]
@@ -41,6 +42,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 574.0
+offset_right = 574.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -66,6 +69,10 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="PauseMenu" parent="HorizontalDivider/LeftEyeControl" unique_id=830883865 instance=ExtResource("3_4d5mx")]
+visible = false
+layout_mode = 1
+
 [node name="RightEyeControl" type="Control" parent="HorizontalDivider" unique_id=1966791025]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -77,6 +84,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -148,3 +157,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PauseMenu" parent="HorizontalDivider/RightEyeControl" unique_id=1431399488 instance=ExtResource("3_4d5mx")]
+visible = false
+layout_mode = 1

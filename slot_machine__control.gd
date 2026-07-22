@@ -289,6 +289,8 @@ func fill_start_grid() -> void:
 
 
 func _on_spin_pressed() -> void:
+	if not GameState.ui_open:
+		return
 	if is_spinning:
 		return
 
